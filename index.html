@@ -13,24 +13,34 @@
    Design Tokens — Clean, Photo-First Travel Guide
    ═══════════════════════════════════════════ */
 :root {
-  --primary:        #ff385c; /* Rausch Accent */
+  --primary:        #ff385c; /* Airbnb Rausch Accent */
   --primary-hover:  #e00b41;
+  --primary-light:  #fff0f2;
   --ink:            #222222;
   --body:           #484848;
   --muted:          #717171;
   --hairline:       #ebebeb;
+  --hairline-dark:  #dddddd;
   --canvas:         #ffffff;
   --surface-soft:   #f7f7f7;
   --shadow-card:    rgba(0,0,0,0.04) 0 1px 3px 0, rgba(0,0,0,0.06) 0 4px 12px 0;
   --shadow-hover:   rgba(0,0,0,0.08) 0 6px 20px 0, rgba(0,0,0,0.12) 0 10px 28px 0;
+  --shadow-floating: 0 6px 24px rgba(0,0,0,0.25), 0 1px 4px rgba(0,0,0,0.12);
   --radius-sm:      8px;
   --radius-md:      14px;
+  --radius-lg:      18px;
   --radius-full:    9999px;
-  --font-stack:     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", sans-serif;
+  --font-stack:     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   --safe-bottom:    env(safe-area-inset-bottom, 0px);
+  --safe-top:       env(safe-area-inset-top, 0px);
+  --header-height-mobile: 98px;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body {
+  width: 100%;
+  min-height: 100%;
+}
 body {
   font-family: var(--font-stack);
   background: var(--canvas);
@@ -39,13 +49,15 @@ body {
   line-height: 1.45;
 }
 a { color: inherit; text-decoration: none; }
+button { font-family: inherit; }
 
-/* ── Clean Travel Header ── */
+/* ── Clean Travel Header (Airbnb Style) ── */
 .app-header {
   position: sticky; top: 0; z-index: 1000;
   background: #ffffff;
   border-bottom: 1px solid var(--hairline);
   box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  transition: all 0.2s ease;
 }
 .header-top {
   max-width: 1320px; margin: 0 auto;
@@ -69,68 +81,67 @@ a { color: inherit; text-decoration: none; }
   border-radius: var(--radius-full); padding: 5px 12px;
   font-size: 12px; font-weight: 600; color: var(--body);
   display: flex; align-items: center; gap: 6px;
+  white-space: nowrap; flex-shrink: 0;
 }
 .meta-chip b { color: var(--ink); }
 
-/* ── Day Navigation Strip ── */
+/* ── Day Navigation Strip (Horizontal Swiper on Mobile) ── */
 .nav-strip-wrapper {
   background: #ffffff;
   border-top: 1px solid var(--hairline);
+  position: relative;
 }
 .nav-strip {
   max-width: 1320px; margin: 0 auto;
   display: flex; gap: 10px; padding: 10px 20px;
   overflow-x: auto; scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }
 .nav-strip::-webkit-scrollbar { display: none; }
 .nav-tab {
   display: flex; align-items: center; gap: 6px;
   background: var(--surface-soft); border: 1px solid var(--hairline);
   border-radius: var(--radius-full); padding: 8px 16px;
-  font-family: inherit; font-size: 13px; font-weight: 700;
+  font-size: 13px; font-weight: 700;
   color: var(--muted); cursor: pointer; white-space: nowrap;
-  transition: all 0.15s ease;
+  transition: all 0.18s ease;
+  flex-shrink: 0;
 }
 .nav-tab:hover { background: #ebebeb; color: var(--ink); }
 .nav-tab.active {
   background: var(--ink); color: #ffffff;
   border-color: var(--ink);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
 .nav-tab.active .tab-icon { transform: scale(1.1); }
 
-/* ── Main Layout: Listing Feed + Sticky Map ── */
+/* ── Main Layout: Listing Feed + Sticky Map (Desktop Default) ── */
 .main-wrapper {
   max-width: 1320px; margin: 0 auto;
   padding: 20px;
   display: grid; grid-template-columns: 1fr 480px; gap: 28px;
   min-height: calc(100vh - 130px);
 }
-@media (max-width: 1024px) {
-  .main-wrapper { grid-template-columns: 1fr; padding: 16px; gap: 16px; }
-  #map-container { display: none; }
-  #map-container.mobile-show { display: block; height: 380px; position: sticky; top: 120px; }
-  .mobile-map-toggle { display: flex !important; }
-}
 
-/* ── Sticky Map Container ── */
+/* ── Sticky Map Container (Desktop) ── */
 #map-container {
   position: sticky; top: 124px; height: calc(100vh - 150px);
   border-radius: var(--radius-md); overflow: hidden;
   border: 1px solid var(--hairline);
   box-shadow: var(--shadow-card);
+  background: #eef2f6;
 }
 #map { width: 100%; height: 100%; }
 
-/* Mobile Map Toggle Button */
+/* Mobile Map Toggle Floating Button (Hidden on Desktop) */
 .mobile-map-toggle {
-  display: none; position: fixed; bottom: calc(20px + var(--safe-bottom));
-  left: 50%; transform: translateX(-50%);
-  background: var(--ink); color: #fff;
-  padding: 12px 22px; border-radius: var(--radius-full);
-  font-size: 14px; font-weight: 700;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.3);
-  z-index: 1001; cursor: pointer;
-  align-items: center; gap: 8px;
+  display: none;
+}
+
+/* Mobile Floating Map Preview Card (Hidden on Desktop) */
+.mobile-map-card {
+  display: none;
 }
 
 /* ── Feed Section ── */
@@ -168,10 +179,10 @@ a { color: inherit; text-decoration: none; }
 }
 .card-media img {
   width: 100%; height: 100%; object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.35s ease;
 }
 .spot-card.clickable:hover .card-media img {
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 /* Badges over photo */
@@ -182,6 +193,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 12px; font-weight: 700; color: var(--ink);
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   display: flex; align-items: center; gap: 4px;
+  z-index: 2;
 }
 .badge-float-left.highlight {
   background: #fff8e6; color: #b78103; border: 1px solid #ffe58f;
@@ -191,6 +203,7 @@ a { color: inherit; text-decoration: none; }
   background: rgba(34,34,34,0.88); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
   color: #fff; font-size: 12px; font-weight: 700;
   padding: 4px 10px; border-radius: 6px;
+  z-index: 2;
 }
 
 /* Card Body */
@@ -224,7 +237,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 13.5px; color: var(--body); line-height: 1.5; margin-top: 8px;
 }
 
-/* ── Meal Candidate Options (Directly Clickable to Locate) ── */
+/* ── Meal Candidate Options ── */
 .meal-section {
   margin-top: 14px; border-top: 1px solid var(--hairline); padding-top: 14px;
 }
@@ -280,21 +293,26 @@ a { color: inherit; text-decoration: none; }
 
 /* Button Styles */
 .btn-rausch {
-  padding: 5px 12px; border-radius: 6px;
+  padding: 6px 14px; border-radius: 6px;
   background: var(--primary); color: #fff;
-  font-size: 11.5px; font-weight: 700;
+  font-size: 12px; font-weight: 700;
   border: none; cursor: pointer; text-align: center;
   display: inline-flex; align-items: center; gap: 4px;
+  transition: background 0.15s ease, transform 0.1s ease;
 }
 .btn-rausch:hover { background: var(--primary-hover); }
+.btn-rausch:active { transform: scale(0.97); }
+
 .btn-outline {
-  padding: 5px 12px; border-radius: 6px;
+  padding: 6px 14px; border-radius: 6px;
   background: #fff; color: var(--ink);
-  font-size: 11.5px; font-weight: 700;
+  font-size: 12px; font-weight: 700;
   border: 1px solid #c7c7c7; cursor: pointer; text-align: center;
   display: inline-flex; align-items: center; gap: 4px;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
 }
 .btn-outline:hover { background: #f0f0f0; border-color: var(--ink); }
+.btn-outline:active { transform: scale(0.97); }
 
 /* Card Footer Actions */
 .card-bottom-actions {
@@ -362,6 +380,265 @@ a { color: inherit; text-decoration: none; }
 .map-pill-pin:hover .seq-num {
   background: #ffffff; color: var(--ink);
 }
+
+/* ═══════════════════════════════════════════
+   Airbnb Mobile & Tablet Adaptation (<= 1024px)
+   ═══════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  /* Compact Header */
+  .header-top {
+    padding: 10px 14px;
+    gap: 8px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .trip-title-group h1 {
+    font-size: 16px;
+    letter-spacing: -0.3px;
+    gap: 6px;
+  }
+  .trip-title-group .trip-dates {
+    font-size: 11.5px;
+    margin-top: 1px;
+  }
+
+  /* Horizontal Scrolling Meta Badges Strip */
+  .header-meta-group {
+    width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    gap: 6px;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .header-meta-group::-webkit-scrollbar { display: none; }
+  .meta-chip {
+    padding: 4px 10px;
+    font-size: 11px;
+    border-radius: var(--radius-full);
+  }
+
+  /* Day Nav Strip */
+  .nav-strip {
+    padding: 8px 14px;
+    gap: 8px;
+  }
+  .nav-tab {
+    padding: 7px 14px;
+    font-size: 12.5px;
+  }
+
+  /* Mobile Page Layout */
+  .main-wrapper {
+    display: block;
+    padding: 12px 14px calc(80px + var(--safe-bottom)) 14px;
+    min-height: auto;
+  }
+
+  .feed-header {
+    margin-bottom: 14px;
+  }
+  .feed-header h2 {
+    font-size: 18px;
+  }
+  .feed-header p {
+    font-size: 12.5px;
+  }
+
+  /* Stat Overview in Mobile */
+  .overview-stats {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .stat-box {
+    padding: 12px 14px;
+  }
+  .stat-box .stat-val {
+    font-size: 14px;
+  }
+
+  /* Spot Cards in Mobile */
+  .card-media {
+    height: 190px;
+  }
+  .card-body {
+    padding: 14px;
+  }
+  .card-title {
+    font-size: 16.5px;
+  }
+  .card-desc {
+    font-size: 13px;
+  }
+
+  /* Meal items in Mobile */
+  .meal-item {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+  .meal-item-thumb {
+    width: 74px;
+    height: 74px;
+  }
+  .meal-name {
+    font-size: 14px;
+  }
+  .meal-memo {
+    font-size: 12.5px;
+  }
+  .btn-rausch, .btn-outline {
+    padding: 7px 12px;
+    font-size: 11.5px;
+    min-height: 34px;
+  }
+
+  /* ── Airbnb Mobile Map Switcher ── */
+  #map-container {
+    display: none;
+  }
+
+  /* Mobile Fullscreen Map Mode */
+  body.mobile-map-active {
+    overflow: hidden;
+    height: 100vh;
+  }
+  body.mobile-map-active .feed-column {
+    display: none;
+  }
+  body.mobile-map-active #map-container {
+    display: block;
+    position: fixed;
+    top: var(--header-height-mobile);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: calc(100vh - var(--header-height-mobile));
+    z-index: 900;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+  }
+
+  /* Airbnb Floating Pill Switcher Button */
+  .mobile-map-toggle {
+    display: flex;
+    position: fixed;
+    bottom: calc(20px + var(--safe-bottom));
+    left: 50%;
+    transform: translateX(-50%);
+    background: #222222;
+    color: #ffffff;
+    padding: 11px 22px;
+    border-radius: var(--radius-full);
+    font-size: 13.5px;
+    font-weight: 700;
+    box-shadow: var(--shadow-floating);
+    z-index: 1100;
+    cursor: pointer;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+    border: 1px solid rgba(255,255,255,0.18);
+    user-select: none;
+  }
+  .mobile-map-toggle:hover {
+    background: #000000;
+  }
+  .mobile-map-toggle:active {
+    transform: translateX(-50%) scale(0.95);
+    background: #000000;
+  }
+
+  /* Mobile Map Bottom Preview Card (Tapping Pin Pops up Card) */
+  .mobile-map-card {
+    display: none;
+    position: fixed;
+    bottom: calc(76px + var(--safe-bottom));
+    left: 12px;
+    right: 12px;
+    max-width: 480px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+    border: 1px solid var(--hairline);
+    z-index: 1050;
+    animation: mobileCardSlideUp 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .mobile-map-card.show {
+    display: block;
+  }
+  .mobile-map-card-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--surface-soft);
+    border: 1px solid var(--hairline);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: var(--muted);
+    cursor: pointer;
+    z-index: 3;
+  }
+  .mobile-map-card-body {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .mobile-map-card-img {
+    width: 72px;
+    height: 72px;
+    border-radius: 8px;
+    object-fit: cover;
+    background: #f0f0f0;
+    flex-shrink: 0;
+  }
+  .mobile-map-card-info {
+    flex: 1;
+    min-width: 0;
+  }
+  .mobile-map-card-title {
+    font-size: 14.5px;
+    font-weight: 800;
+    color: var(--ink);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .mobile-map-card-sub {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .mobile-map-card-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+  }
+}
+
+@keyframes mobileCardSlideUp {
+  from {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 </style>
 </head>
 <body>
@@ -425,8 +702,16 @@ a { color: inherit; text-decoration: none; }
   </aside>
 </main>
 
-<!-- Mobile Map Toggle Float Button -->
-<div class="mobile-map-toggle" onclick="toggleMobileMap()">
+<!-- Airbnb-Style Mobile Map Preview Card (Pops up when tapping any marker on mobile) -->
+<div id="mobileMapCard" class="mobile-map-card">
+  <button class="mobile-map-card-close" onclick="closeMobileMapCard(event)" aria-label="关闭">✕</button>
+  <div class="mobile-map-card-body" id="mobileMapCardBody">
+    <!-- Populated dynamically via JS -->
+  </div>
+</div>
+
+<!-- Airbnb-Style Floating View Switcher (Map ⇄ List) -->
+<div class="mobile-map-toggle" id="mobileMapToggle" onclick="toggleMobileMap()">
   <span id="mapToggleIcon">🗺️</span>
   <span id="mapToggleText">查看地图</span>
 </div>
@@ -1352,6 +1637,11 @@ function renderMapMarkers(dayId) {
             ${spot.naverUrl ? `<div style="margin-top:6px;"><a href="${spot.naverUrl}" target="_blank" style="color:#007aff;font-weight:700;font-size:12px;">在 Naver Map 打开导航 →</a></div>` : ''}
           </div>
         `);
+        marker.on('click', () => {
+          if (window.innerWidth <= 1024) {
+            showMobileMapCard(spot);
+          }
+        });
         markerLayer.addLayer(marker);
         currentMarkers[spot.name] = marker;
       });
@@ -1394,6 +1684,11 @@ function renderMapMarkers(dayId) {
             ${spot.naverUrl ? `<div style="margin-top:6px;"><a href="${spot.naverUrl}" target="_blank" style="color:#007aff;font-weight:700;font-size:12px;">在 Naver Map 打开导航 →</a></div>` : ''}
           </div>
         `);
+        marker.on('click', () => {
+          if (window.innerWidth <= 1024) {
+            showMobileMapCard(spot);
+          }
+        });
         markerLayer.addLayer(marker);
         currentMarkers[spot.name] = marker;
 
@@ -1435,6 +1730,11 @@ function renderMapMarkers(dayId) {
                   ${m.naverUrl ? `<div style="margin-top:6px;"><a href="${m.naverUrl}" target="_blank" style="color:#007aff;font-weight:700;font-size:12px;">在 Naver Map 打开导航 →</a></div>` : ''}
                 </div>
               `);
+              cMarker.on('click', () => {
+                if (window.innerWidth <= 1024) {
+                  showMobileMapCard(m);
+                }
+              });
               markerLayer.addLayer(cMarker);
               currentMarkers[m.name] = cMarker;
             }
@@ -1452,21 +1752,74 @@ function renderMapMarkers(dayId) {
   }
 }
 
+/* ═══════════════════════════════════════════
+   Mobile Map Preview Floating Card Handlers
+   ═══════════════════════════════════════════ */
+function showMobileMapCard(item) {
+  const card = document.getElementById('mobileMapCard');
+  const body = document.getElementById('mobileMapCardBody');
+  if (!card || !body) return;
+
+  const imgHtml = item.img ? `<img src="${item.img}" class="mobile-map-card-img" alt="${item.name}" loading="lazy" />` : '';
+  const subHtml = item.score ? `<span style="color:var(--primary);font-weight:700;">${item.score}</span> · ${item.hours || item.time || item.address || ''}` : `${item.time || item.hours || item.address || ''}`;
+
+  body.innerHTML = `
+    ${imgHtml}
+    <div class="mobile-map-card-info">
+      <div class="mobile-map-card-title">${item.name}</div>
+      <div class="mobile-map-card-sub">${subHtml}</div>
+      <div class="mobile-map-card-actions">
+        ${item.naverUrl ? `<a href="${item.naverUrl}" target="_blank" class="btn-outline" style="padding:4px 10px;font-size:11px;" onclick="event.stopPropagation()">🟢 Naver 导航</a>` : ''}
+        ${item.catchtable ? `<a href="https://app.catchtable.co.kr" target="_blank" class="btn-rausch" style="padding:4px 10px;font-size:11px;" onclick="event.stopPropagation()">📱 CatchTable</a>` : ''}
+      </div>
+    </div>
+  `;
+
+  card.classList.add('show');
+}
+
+function closeMobileMapCard(e) {
+  if (e) e.stopPropagation();
+  const card = document.getElementById('mobileMapCard');
+  if (card) card.classList.remove('show');
+}
+
 // Focus directly on a candidate restaurant or spot on the map
 function focusLocation(name, lat, lng) {
   if (!map) return;
 
-  // On mobile, if map is hidden, show it
-  const mapContainer = document.getElementById('map-container');
-  if (window.innerWidth <= 1024 && !mapContainer.classList.contains('mobile-show')) {
-    toggleMobileMap();
+  // On mobile, if in list view, switch seamlessly to map mode
+  if (window.innerWidth <= 1024) {
+    toggleMobileMap(true);
   }
 
   map.setView([lat, lng], 16, { animate: true });
 
   const m = currentMarkers[name];
   if (m) {
-    setTimeout(() => m.openPopup(), 250);
+    setTimeout(() => {
+      m.openPopup();
+    }, 250);
+  }
+
+  // Also find item data to show mobile floating card
+  if (window.innerWidth <= 1024) {
+    const currentDay = ITINERARY_DAYS.find(x => x.id === activeDay);
+    if (currentDay && currentDay.spots) {
+      for (const s of currentDay.spots) {
+        if (s.name === name) {
+          showMobileMapCard(s);
+          break;
+        }
+        if (s.meals) {
+          const foundMeal = s.meals.find(meal => meal.name === name);
+          if (foundMeal) {
+            showMobileMapCard(foundMeal);
+            break;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -1505,7 +1858,7 @@ function renderFeed(dayId) {
           <div class="stat-sub">弘大文创 + 合井辣妹机能 + 圣水岩壁潮店</div>
         </div>
       </div>
-      <h3 style="font-size:18px;font-weight:800;margin:18px 0 12px;">四天精选行程一览 (点击查看详情)</h3>
+      <h3 style="font-size:17px;font-weight:800;margin:16px 0 12px;">四天精选行程一览 (点击查看详情)</h3>
     `;
 
     for (let i = 1; i < ITINERARY_DAYS.length; i++) {
@@ -1630,7 +1983,7 @@ function renderFeed(dayId) {
 }
 
 /* ═══════════════════════════════════════════
-   Tabs & Mobile Map Handlers
+   Tabs & Mobile Map Handlers (Airbnb Experience)
    ═══════════════════════════════════════════ */
 let activeDay = 0;
 
@@ -1639,34 +1992,83 @@ function switchDay(dayId) {
 
   const tabs = document.querySelectorAll('.nav-tab');
   tabs.forEach((tab, index) => {
-    if (index === dayId) tab.classList.add('active');
-    else tab.classList.remove('active');
+    if (index === dayId) {
+      tab.classList.add('active');
+      // Auto-center the active tab horizontally on mobile screens
+      if (typeof tab.scrollIntoView === 'function') {
+        tab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
+    } else {
+      tab.classList.remove('active');
+    }
   });
 
+  closeMobileMapCard();
   renderFeed(dayId);
   renderMapMarkers(dayId);
 
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // If in list view, smoothly scroll up
+  if (!document.body.classList.contains('mobile-map-active')) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else {
+    // If already in mobile map mode, invalidate map size to ensure proper tile loading
+    setTimeout(() => {
+      if (map) map.invalidateSize();
+    }, 150);
+  }
 }
 
 let isMobileMapOpen = false;
-function toggleMobileMap() {
-  const mapContainer = document.getElementById('map-container');
+function toggleMobileMap(forceState) {
   const icon = document.getElementById('mapToggleIcon');
   const text = document.getElementById('mapToggleText');
 
-  isMobileMapOpen = !isMobileMapOpen;
-  if (isMobileMapOpen) {
-    mapContainer.classList.add('mobile-show');
-    icon.textContent = '📋';
-    text.textContent = '返回列表';
-    setTimeout(() => map.invalidateSize(), 200);
+  if (typeof forceState === 'boolean') {
+    isMobileMapOpen = forceState;
   } else {
-    mapContainer.classList.remove('mobile-show');
-    icon.textContent = '🗺️';
-    text.textContent = '查看地图';
+    isMobileMapOpen = !isMobileMapOpen;
+  }
+
+  // Update mobile header height dynamically
+  const headerEl = document.querySelector('.app-header');
+  if (headerEl) {
+    const h = headerEl.offsetHeight;
+    document.documentElement.style.setProperty('--header-height-mobile', h + 'px');
+  }
+
+  if (isMobileMapOpen) {
+    document.body.classList.add('mobile-map-active');
+    if (icon) icon.textContent = '📋';
+    if (text) text.textContent = '返回列表';
+
+    setTimeout(() => {
+      if (map) {
+        map.invalidateSize();
+        // Re-fit day bounds when opening map view
+        renderMapMarkers(activeDay);
+      }
+    }, 100);
+  } else {
+    document.body.classList.remove('mobile-map-active');
+    if (icon) icon.textContent = '🗺️';
+    if (text) text.textContent = '查看地图';
+    closeMobileMapCard();
   }
 }
+
+// Window resize listener to sync header height & reset state if expanding to desktop
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 1024) {
+    document.body.classList.remove('mobile-map-active');
+    closeMobileMapCard();
+  } else {
+    const headerEl = document.querySelector('.app-header');
+    if (headerEl) {
+      document.documentElement.style.setProperty('--header-height-mobile', headerEl.offsetHeight + 'px');
+    }
+  }
+  if (map) map.invalidateSize();
+});
 
 // Initial Bootstrap
 document.addEventListener('DOMContentLoaded', () => {
