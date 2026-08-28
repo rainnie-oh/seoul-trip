@@ -235,7 +235,7 @@ a { color: inherit; text-decoration: none; }
 .meal-cards-list { display: flex; flex-direction: column; gap: 10px; }
 
 .meal-item {
-  background: var(--surface-soft); border-radius: var(--radius-sm);
+  background: #ffffff; border-radius: var(--radius-sm);
   padding: 12px 14px; border: 1px solid var(--hairline);
   display: flex; gap: 14px; align-items: flex-start;
   transition: all 0.15s ease;
@@ -243,7 +243,7 @@ a { color: inherit; text-decoration: none; }
 }
 .meal-item:hover {
   background: #ffffff;
-  border-color: #c7d2fe;
+  border-color: #94a3b8;
   box-shadow: 0 4px 14px rgba(0,0,0,0.06);
   transform: translateY(-1px);
 }
@@ -251,12 +251,12 @@ a { color: inherit; text-decoration: none; }
   transform: scale(0.99);
 }
 .meal-item.top-rank {
-  background: #fffdf9; border-left: 4px solid var(--primary);
-  border-color: #ffd8d8;
+  background: #fafafa;
+  border: 1px solid #e2e8f0;
 }
 .meal-item.top-rank:hover {
   background: #ffffff;
-  border-color: var(--primary);
+  border-color: #007aff;
 }
 .meal-item-thumb {
   width: 84px; height: 84px; border-radius: 8px; object-fit: cover;
@@ -314,26 +314,53 @@ a { color: inherit; text-decoration: none; }
 .stat-box .stat-val { font-size: 15px; font-weight: 800; color: var(--ink); margin-top: 6px; }
 .stat-box .stat-sub { font-size: 12.5px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
 
-/* ── Custom Leaflet Map Pin Style ── */
+/* ── Route Arrows & Directional Path Styling ── */
+.route-arrow-wrap {
+  pointer-events: none;
+}
+.route-arrow {
+  width: 22px; height: 22px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 900;
+  text-shadow: 0 0 4px #ffffff, 0 0 6px #ffffff, 0 1px 3px rgba(0,0,0,0.3);
+  line-height: 1;
+}
+
+/* ── Custom Leaflet Map Pin Style with Sequence Number ── */
 .map-pill-pin {
   background: #ffffff; color: var(--ink);
   font-weight: 800; font-size: 11.5px;
-  padding: 4px 8px; border-radius: 20px;
-  border: 1px solid rgba(0,0,0,0.16);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  padding: 4px 9px 4px 5px; border-radius: 20px;
+  border: 1px solid rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.14);
   white-space: nowrap; cursor: pointer;
-  transition: transform 0.15s, background 0.15s, color 0.15s;
-  display: flex; align-items: center; gap: 4px;
+  transition: transform 0.15s, background 0.15s, color 0.15s, box-shadow 0.15s;
+  display: inline-flex; align-items: center; gap: 5px;
 }
 .map-pill-pin:hover, .map-pill-pin.active {
   background: var(--ink); color: #ffffff;
-  transform: scale(1.12); z-index: 1000;
+  transform: scale(1.1); z-index: 1000;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
 }
 .map-pill-pin.rausch {
   background: var(--primary); color: #ffffff; border: none;
 }
 .map-pill-pin.candidate {
   background: #fff8e6; color: #b78103; border: 1px solid #ffe58f;
+  padding: 4px 8px;
+}
+.map-pill-pin .seq-num {
+  width: 17px; height: 17px; border-radius: 50%;
+  background: var(--ink); color: #ffffff;
+  font-size: 10px; font-weight: 800;
+  display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0; line-height: 1;
+}
+.map-pill-pin.rausch .seq-num {
+  background: #ffffff; color: var(--primary);
+}
+.map-pill-pin:hover .seq-num {
+  background: #ffffff; color: var(--ink);
 }
 </style>
 </head>
@@ -531,11 +558,12 @@ const ITINERARY_DAYS = [
     id: 1,
     label: 'D1 落地·钟路抱石',
     date: '9月12日 (周六)',
-    title: '金浦极速出关 · 钟路大本营与影院改造抱石',
+    title: '金浦极速出关 · 钟路大本营与两场抱石 (含中场快速补能)',
     color: '#007aff',
     spots: [
       {
         name: OFFICIAL_DATA.gmp.name,
+        shortName: '金浦机场',
         kor: OFFICIAL_DATA.gmp.kor,
         lat: OFFICIAL_DATA.gmp.lat, lng: OFFICIAL_DATA.gmp.lng,
         address: OFFICIAL_DATA.gmp.address,
@@ -547,129 +575,135 @@ const ITINERARY_DAYS = [
       },
       {
         name: OFFICIAL_DATA.hostel.name,
+        shortName: '旅舍大本营',
         kor: OFFICIAL_DATA.hostel.kor,
         lat: OFFICIAL_DATA.hostel.lat, lng: OFFICIAL_DATA.hostel.lng,
         address: OFFICIAL_DATA.hostel.address,
         img: OFFICIAL_DATA.hostel.img,
-        time: '15:15 - 15:45',
+        time: '15:15 - 15:40',
         badge: '住宿大本营',
         hours: '🕒 入住时间 15:00 起',
         transit: '🚶 钟路三街站 5号口步行 150 米',
-        desc: '办理入住与放置行李，出入便利，步行至岩馆仅 200 米。',
+        desc: '办理入住与放置行李，换上攀岩服与岩鞋，步行至岩馆仅 200 米。',
         naverUrl: OFFICIAL_DATA.hostel.naverUrl
       },
       {
-        name: '베이커리 아궁 (土豆包) & 预备明日早餐',
-        kor: '베이커리 아궁',
-        lat: 37.569479, lng: 126.9831475,
-        address: '首尔特别市 钟路区 贯铁洞 290',
-        img: 'images/agung.jpg',
-        time: '16:00 - 16:20',
-        badge: '攀岩前垫饥',
-        hours: '🕒 营业时间: 08:30 - 21:00',
-        transit: '🚶 从 Hostel 步行 6 分钟 (约450米)',
-        desc: '现烤特色土豆包，外糯里香，攀岩前热身垫饥；可多买备作明日早餐。',
-        naverUrl: 'https://map.naver.com/p/search/%EB%B2%A0%EC%9D%B4%EC%BB%A4%EB%A6%AC%20%EC%95%84%EA%B5%81'
-      },
-      {
         name: OFFICIAL_DATA.peakers.name,
+        shortName: 'PEAKERS 首刷',
         kor: OFFICIAL_DATA.peakers.kor,
         lat: OFFICIAL_DATA.peakers.lat, lng: OFFICIAL_DATA.peakers.lng,
         address: OFFICIAL_DATA.peakers.address,
         img: OFFICIAL_DATA.peakers.img,
-        time: '16:30 - 19:30',
-        badge: '【岩馆 D1】影院挑空改造',
-        hours: '🕒 周末 10:00 - 20:00 (平日至23:00)',
-        transit: '🚶 CGV 钟路店 4层，从土豆包步行 4 分钟',
-        desc: '电影院爆改超高挑空岩馆，空间开阔，定线丰富有趣。',
+        time: '15:45 - 17:45',
+        badge: '【岩馆 D1】第一场 · 冲难度刷线',
+        hours: '🕒 周末 10:00 - 20:00 (一日票支持当天凭手环无限次进出)',
+        transit: '🚶 CGV 钟路店 4层，从 Hostel 步行 2 分钟',
+        desc: '电影院挑空改造超高岩馆，体能充沛期主攻核心大角度与难线；一日票支持中途外出就餐。',
         naverUrl: OFFICIAL_DATA.peakers.naverUrl
       },
       {
-        name: '钟路 / 乙支路 晚间美食精选',
-        kor: '종로/을지로 저녁 맛집',
-        lat: 37.565647, lng: 126.9919844,
-        address: '首尔特别市 中区 乙支路三街美食街区',
-        img: 'images/sancheong.jpg',
-        time: '19:30 - 21:30',
-        badge: '晚餐候选列表',
-        transit: '🚶 从 PEAKERS 步行 8~10 分钟跨过清溪川即达乙支路',
-        desc: '',
+        name: '钟路3街 / 乙支路 快速补能晚餐 (3选1)',
+        shortName: '晚餐补能 (3选1)',
+        kor: '종로3가 빠른 단백질 맛집',
+        lat: 37.5699, lng: 126.9897,
+        address: '首尔特别市 钟路区 钟路三街美食街区',
+        img: 'images/konbu.jpg',
+        time: '17:50 - 18:35',
+        badge: '中场高蛋白晚餐 (免长队·出餐快)',
+        transit: '🚶 步行 1~7 分钟即达，快速进食高蛋白补充体能',
+        desc: '下楼就近快速补充高蛋白与适量碳水，出餐快、好吸收、不顶胃、免去大餐厅排队耗时，吃完回馆继续爬。',
         meals: [
           {
-            name: '산청숯불가든 을지로 2호점 (山清炭火花园 2号店)',
-            score: '4.85 ★ 🥇 首尔黑猪肉天花板',
-            lat: 37.565647, lng: 126.9919844,
-            address: '首尔特别市 中区 乙支路三街 302-1',
-            img: 'images/sancheong.jpg',
+            name: "Mom's Touch 맘스터치 (钟路3街店)",
+            score: '4.58 ★ 🥇 韩国国民炸鸡汉堡第一名',
+            lat: 37.5699, lng: 126.9897,
+            address: '首尔特别市 钟路区 水标路 96 (CGV 对面 100米)',
+            img: 'images/test.png',
             top: true,
-            hours: '11:30 - 23:00 (无午休，最后点单 21:50)',
-            booking: '📱 CatchTable App 远程取号 (建议下午16:30提前取号)',
-            memo: '极品智异山黑猪肉+传统炭火！肉汁丰盈焦香，搭配特制泡菜与明兰，排队王烤肉。',
-            budget: '约 ¥160/人',
-            catchtable: true,
-            naverUrl: 'https://map.naver.com/p/search/%EC%82%B0%EC%B2%AD%EC%8F%AF%EB%B6%88%EA%B0%80%EB%93%A0%20%EC%9D%84%EC%A7%80%EB%A1%9C'
+            hours: '10:30 - 22:00',
+            booking: '店内极速出餐 (3~5分钟)',
+            memo: '类型：国民炸鸡汉堡快餐 ｜ 必点：招牌腿排堡 (Thigh Burger)、烤鸡胸肉堡',
+            budget: '约 ¥40/人',
+            catchtable: false,
+            naverUrl: 'https://map.naver.com/p/search/%EB%A7%98%EC%8A%A4%ED%84%B0%EC%B9%98%20%EC%A2%85%EB%A1%9C3%EA%B0%80'
+          },
+          {
+            name: '싸움의고수 종로3가점 (单人白切肉定食)',
+            score: '4.55 ★ · 高蛋白单人菜包肉',
+            lat: 37.5732, lng: 126.9878,
+            address: '首尔特别市 钟路区 三一大路 438 (钟路3街站5号口旁)',
+            img: null,
+            top: false,
+            hours: '11:00 - 22:00',
+            booking: 'Kiosk 自助极速点餐',
+            memo: '类型：单人快餐菜包肉 ｜ 必点：水煮白切肉套餐 (보쌈)、酱烤猪肉定食',
+            budget: '约 ¥50/人',
+            catchtable: false,
+            naverUrl: 'https://map.naver.com/p/search/%EC%8B%B8%EC%9B%80%EC%9D%98%EA%B3%A0%EC%88%98%20%EC%A2%85%EB%A1%9C3%EA%B0%80'
           },
           {
             name: '콘부 (Konbu 乙支路店)',
-            score: '4.52 ★ · 日式居酒屋/拉面',
+            score: '4.52 ★ · 日式海鲜拉面/居酒屋',
             lat: 37.5650851, lng: 126.9903413,
             address: '首尔特别市 中区 乙支路三街 7-6',
             img: 'images/konbu.jpg',
             top: false,
-            hours: '11:30 - 23:00 (午休 14:00-17:00)',
+            hours: '13:00 - 23:00 (全天营业)',
             booking: '📱 现场 CatchTable 取号机 / 晚上直接入座',
-            memo: '乙支路小巷深夜食堂氛围居酒屋，招牌浓郁海鲜豚骨拉面与精选下酒炸物。',
+            memo: '类型：日式海鲜拉面居酒屋 ｜ 必点：海鲜豚骨拉面、厚切叉烧',
             budget: '约 ¥80/人',
             catchtable: true,
             naverUrl: 'https://map.naver.com/p/search/%EC%BD%98%EB%B6%80%20%EC%9D%84%EC%A7%80%EB%A1%9C'
-          },
-          {
-            name: '광장시장 (广藏市场 小吃街)',
-            score: '4.48 ★ · 传统市井烟火',
-            lat: 37.5701661, lng: 126.9990691,
-            address: '首尔特别市 钟路区 礼智洞 2-1',
-            img: 'images/gwangjang.jpg',
-            top: false,
-            hours: '09:00 - 23:00',
-            booking: '无需预约，现场随买随吃',
-            memo: '生牛肉活章鱼配蛋黄、顺熙家绿豆煎饼、麻药紫菜包饭，沉浸式体验首尔夜市。',
-            budget: '约 ¥60/人',
-            catchtable: false,
-            naverUrl: 'https://map.naver.com/p/search/%EA%B4%91%EC%9E%A5%EC%8B%9C%EC%9E%A5'
           }
         ]
+      },
+      {
+        name: OFFICIAL_DATA.peakers.name,
+        shortName: 'PEAKERS 二刷',
+        kor: OFFICIAL_DATA.peakers.kor,
+        lat: OFFICIAL_DATA.peakers.lat, lng: OFFICIAL_DATA.peakers.lng,
+        address: OFFICIAL_DATA.peakers.address,
+        img: OFFICIAL_DATA.peakers.img,
+        time: '18:40 - 20:00',
+        badge: '【岩馆 D1】第二场 · 助消化至闭馆',
+        hours: '🕒 周末至 20:00 准时闭馆',
+        transit: '🚶 从餐厅步行 1~7 分钟回馆',
+        desc: '餐后散步回馆，爬耐力线与刷量助消化，畅爬至周六 20:00 闭馆；爬完步行 2 分钟回 Hostel 冲凉。',
+        naverUrl: OFFICIAL_DATA.peakers.naverUrl
       }
     ]
   },
   {
     id: 2,
-    label: 'D2 弘大·延南漫游',
+    label: 'D2 延南·弘大漫游',
     date: '9月13日 (周日)',
-    title: '好吃好玩全天 · 弘大/延南洞/合井 独立买手店与美食漫游',
+    title: '好吃好玩全天 · 延南洞慢调与弘大潮流单向漫游 (绝不走回头路)',
     color: '#34c759',
     spots: [
       {
-        name: '望远洞文创街区 & 望远市场 (Ugly Bakery 随缘)',
-        kor: '망원동 골목 & 망원시장 & 어글리베이커리(옵션)',
-        lat: 37.5550335, lng: 126.9060383,
-        address: '首尔特别市 麻浦区 望远洞 400-1',
-        img: 'images/ugly_bakery.jpg',
-        time: '10:00 - 12:30',
-        badge: '慢漫步逛街 (Ugly随缘免排队)',
-        hours: '🕒 望远店铺大多 11:00~12:00 营业；Ugly Bakery 12:00-21:00',
-        transit: '🚇 09:35 钟路三街乘地铁1号线转2号线至【弘大入口站】(22分钟)',
-        desc: '漫步望远洞宁静街巷与市井市场；Ugly Bakery 设为随缘备选，人多直接跳过。',
-        naverUrl: 'https://map.naver.com/p/search/%EC%96%B4%EA%B8%80%EB%A6%AC%EB%B2%A0%EC%9D%B4%EC%BB%A4%EB%A6%AC'
+        name: '延南洞京义线林荫道 & 烘焙买手店漫步',
+        shortName: '延南洞街区',
+        kor: '경의선숲길 & 만동제과 & 카페 레이어드 (Ugly Bakery 随缘)',
+        lat: 37.561526, lng: 126.9272585,
+        address: '首尔特别市 麻浦区 延南洞 228-56',
+        img: 'images/mandong.jpg',
+        time: '10:45 - 12:30',
+        badge: '慢调文创街区 (出站即达)',
+        hours: '🕒 万东制果 11:00 开门；延南独立买手店 11:30~12:00 陆续营业',
+        transit: '🚇 10:15 钟路三街站乘地铁1号线转2号线直达【弘大入口站 3号口】(20分钟)',
+        desc: '从 3 号口出站直接步入延南洞绿荫道。打卡万东制果招牌现烤大蒜法棍与 Cafe Layered 司康，慢逛林荫道两侧独立文创与杂货小巷。（Ugly Bakery 设为随缘备选，若想吃其爆浆奶油包可顺手叫外送或漫步打包，免去排长队）。',
+        naverUrl: 'https://map.naver.com/p/search/%EB%A7%8C%EB%8F%99%EC%A0%9C%EA%B3%BC'
       },
       {
-        name: '延南洞 精致午餐精选',
+        name: '延南洞 精致午餐精选 (4选1)',
+        shortName: '延南午餐 (4选1)',
         kor: '연남동 점심 맛집',
         lat: 37.5637057, lng: 126.9268894,
         address: '首尔特别市 麻浦区 延南洞 224-5',
         img: 'images/amine.jpg',
         time: '12:30 - 14:00',
-        badge: '午餐候选列表',
-        transit: '🚶 步行 10 分钟返回延南洞餐饮街区',
+        badge: '午餐候选列表 (同街区内)',
+        transit: '🚶 延南洞街区内步行 2~4 分钟即达',
         desc: '',
         meals: [
           {
@@ -681,24 +715,10 @@ const ITINERARY_DAYS = [
             top: true,
             hours: '11:30 - 21:00 (午休 15:30-17:00)',
             booking: '📱 支持 CatchTable App 提前预约指定时间',
-            memo: '环境优雅，送精致前菜，海鲜烤盘与法式小羊排绝美，建议在 CatchTable 提前预约。',
+            memo: '类型：地中海创意料理 ｜ 必点：海鲜烤盘、法式小羊排、精致前菜',
             budget: '约 ¥150/人',
             catchtable: true,
             naverUrl: 'https://map.naver.com/p/search/%EC%95%84%EB%AF%BC%20%EC%97%B0%EB%82%A8'
-          },
-          {
-            name: '소신이쏘 신촌본점 (Sosin Isso 辛村总店)',
-            score: '4.68 ★ · 美味辣炖牛排骨',
-            lat: 37.5572041, lng: 126.9355349,
-            address: '首尔特别市 西大门区 沧川洞 57-39',
-            img: 'images/sosin_isso.jpg',
-            top: false,
-            hours: '11:30 - 22:00 (午休 15:10-17:00)',
-            booking: '📱 现场取号机 / 饭点稍有排队',
-            memo: '老字号炖牛排骨！肉质软烂脱骨，香辣汤汁裹满年糕和拉面。',
-            budget: '约 ¥95/人',
-            catchtable: false,
-            naverUrl: 'https://map.naver.com/p/search/%EC%86%8C%EC%8B%A0%EC%9D%B4%EC%8F%98%20%EC%8B%A0%EC%B4%8C%EB%B3%B8%EC%A0%90'
           },
           {
             name: '수라간 (Suragan)',
@@ -709,7 +729,7 @@ const ITINERARY_DAYS = [
             top: false,
             hours: '11:30 - 21:00 (午休 15:00-17:00)',
             booking: '📱 现场 CatchTable 取号',
-            memo: '经典酱油蟹、调味排骨肉与大麦海鲜锅，口味纯正地道，小菜丰富。',
+            memo: '类型：精致韩食定食 ｜ 必点：调味酱油蟹、调味排骨肉、大麦海鲜锅',
             budget: '约 ¥110/人',
             catchtable: true,
             naverUrl: 'https://map.naver.com/p/search/%EC%88%98%EB%9D%BC%EA%B0%84%20%EC%97%B0%EB%82%A8'
@@ -723,60 +743,65 @@ const ITINERARY_DAYS = [
             top: false,
             hours: '12:00 - 21:00 (全天无午休)',
             booking: '现场排队入座',
-            memo: '复古意大利餐馆，黄油蘑菇烩饭与特调辣味番茄培根意面好评。',
+            memo: '类型：复古意式餐馆 ｜ 必点：黄油蘑菇烩饭、辣味番茄培根意面',
             budget: '约 ¥90/人',
             catchtable: false,
             naverUrl: 'https://map.naver.com/p/search/%EC%B9%B4%EB%A9%9C%EB%A1%9C%EC%97%B0%EB%82%A8'
+          },
+          {
+            name: '소신이쏘 신촌본점 (Sosin Isso 辛村总店)',
+            score: '4.68 ★ · 美味辣炖牛排骨',
+            lat: 37.5572041, lng: 126.9355349,
+            address: '首尔特别市 西大门区 沧川洞 57-39',
+            img: 'images/sosin_isso.jpg',
+            top: false,
+            hours: '11:30 - 22:00 (午休 15:10-17:00)',
+            booking: '📱 现场取号机 / 饭点稍有排队',
+            memo: '类型：老字号炖牛排骨 ｜ 必点：软烂微辣炖牛排骨、芝士拉面炒饭',
+            budget: '约 ¥95/人',
+            catchtable: false,
+            naverUrl: 'https://map.naver.com/p/search/%EC%86%8C%EC%8B%A0%EC%9D%B4%EC%8F%98%20%EC%8B%A0%EC%B4%8C%EB%B3%B8%EC%A0%90'
           }
         ]
       },
       {
-        name: '延南洞京义线林荫道 & 烘焙漫步',
-        kor: '경의선숲길 & 만동제과 & 카페 레이어드',
-        lat: 37.561526, lng: 126.9272585,
-        address: '首尔特别市 麻浦区 延南洞/西桥洞',
-        img: 'images/mandong.jpg',
-        time: '14:00 - 15:30',
-        badge: '逛街与下午茶',
-        hours: '🕒 买手店大多 13:00 - 21:00；万东制果 11:00 - 20:30',
-        desc: '漫步绿荫道，打包万东制果大蒜法棍，或在 Layered 享用英伦复古司康。',
-        naverUrl: 'https://map.naver.com/p/search/%EB%A7%8C%EB%8F%99%EC%A0%9C%EA%B3%BC'
-      },
-      {
         name: OFFICIAL_DATA.kt_and_g.name,
+        shortName: 'KT&G 文创',
         kor: OFFICIAL_DATA.kt_and_g.kor,
         lat: OFFICIAL_DATA.kt_and_g.lat, lng: OFFICIAL_DATA.kt_and_g.lng,
         address: OFFICIAL_DATA.kt_and_g.address,
         img: OFFICIAL_DATA.kt_and_g.img,
-        time: '15:30 - 16:45',
+        time: '14:15 - 16:00',
         badge: '【弘大文创地标】设计杂货&展演',
         hours: '🕒 营业时间: 11:00 - 21:00',
-        transit: '🚶 从延南洞漫步至西桥洞约 8 分钟',
-        desc: '1~3层为 Design Square 文创设计广场，汇集独立设计师文具、插画周边与创意杂货。',
+        transit: '🚶 从延南洞往南过马路穿入西桥洞主街，漫步约 8 分钟',
+        desc: '1~3层为 Design Square 文创设计广场，汇集独立设计师文具、插画周边与创意杂货；沿途逛弘大潮流服饰街区。',
         naverUrl: OFFICIAL_DATA.kt_and_g.naverUrl
       },
       {
         name: OFFICIAL_DATA.badblood.name,
+        shortName: 'BADBLOOD',
         kor: OFFICIAL_DATA.badblood.kor,
         lat: OFFICIAL_DATA.badblood.lat, lng: OFFICIAL_DATA.badblood.lng,
         address: OFFICIAL_DATA.badblood.address,
         img: OFFICIAL_DATA.badblood.img,
-        time: '16:45 - 18:00',
+        time: '16:15 - 17:45',
         badge: '【潮牌旗舰店】顶流街头机能辣妹风',
         hours: '🕒 营业时间: 13:00 - 21:00',
-        transit: '🚶 从 KT&G 往合井方向步行 3 分钟 (约300米)',
+        transit: '🚶 从 KT&G 往合井方向继续南行 3 分钟 (约300米)',
         desc: '韩国顶流街头机能风独栋 3 层旗舰店，版型显瘦修身，明星同款试穿选购。',
         naverUrl: OFFICIAL_DATA.badblood.naverUrl
       },
       {
-        name: '弘大 / 延南洞 晚间美食精选',
-        kor: '홍대/연남 저녁 맛집',
+        name: '弘大 / 西桥洞 晚间美食精选 (3选1)',
+        shortName: '烤肉晚餐 (3选1)',
+        kor: '홍대/서교동 저녁 맛집',
         lat: 37.5530754, lng: 126.921419,
         address: '首尔特别市 麻浦区 西桥洞 357-3',
         img: 'images/doma_hongdae.jpg',
         time: '18:00 - 20:30',
-        badge: '晚餐候选列表',
-        transit: '🚶 漫步至弘大西桥洞美食街',
+        badge: '晚餐候选列表 (顺路进店)',
+        transit: '🚶 步行 3~5 分钟即达西桥洞美食街',
         desc: '',
         meals: [
           {
@@ -788,24 +813,10 @@ const ITINERARY_DAYS = [
             top: true,
             hours: '12:00 - 23:00 (午休 15:00-17:00)',
             booking: '🟢 Naver 预约 / 现场排队',
-            memo: '西桥洞老牌烤肉名店！黑毛和牛与猪颈肉配香浓大酱汤，肉质鲜嫩多汁。',
+            memo: '类型：炭火高等级烤肉 ｜ 必点：黑毛和牛、猪颈肉、招牌麻药大酱汤',
             budget: '约 ¥140/人',
             catchtable: false,
             naverUrl: 'https://map.naver.com/p/search/%EB%8F%84%EB%A7%88%20%ED%99%8D%EB%8C%80%EB%B3%B8%EC%A0%90'
-          },
-          {
-            name: '연주방 어페어 (Yeonjubang Affair)',
-            score: '4.61 ★ · 封面炙烤牛肉与海鲜',
-            lat: 37.5623906, lng: 126.9256371,
-            address: '首尔特别市 麻浦区 延南洞 387-39',
-            img: 'images/yeonjubang.jpg',
-            top: false,
-            hours: '17:00 - 24:00 (海鲜小酒馆)',
-            booking: '📱 CatchTable App 预约 / DM 预约',
-            memo: '现代韩风小酒馆，招牌封面炙烤牛肉与时令海鲜下酒菜广受称赞。',
-            budget: '约 ¥130/人',
-            catchtable: true,
-            naverUrl: 'https://map.naver.com/p/search/%EC%97%B0%EC%A3%BC%EB%B0%A9%20%EC%96%B4%ED%8E%98%EC%96%B4'
           },
           {
             name: '영동 감자탕 (荣东土豆排骨汤)',
@@ -816,10 +827,24 @@ const ITINERARY_DAYS = [
             top: false,
             hours: '11:00 - 22:00 (午休 15:30-17:00)',
             booking: '现场直接入座',
-            memo: '大块炖酥烂的猪脊骨与软糯土豆，汤底醇厚，加一份炒饭堪称灵魂。',
+            memo: '类型：老字号土豆排骨汤 ｜ 必点：大脊骨土豆排骨汤、汤汁炒饭',
             budget: '约 ¥70/人',
             catchtable: false,
             naverUrl: 'https://map.naver.com/p/search/%EC%98%81%EB%8F%99%EA%B0%90%EC%9E%90%ED%83%95'
+          },
+          {
+            name: '연주방 어페어 (Yeonjubang Affair)',
+            score: '4.61 ★ · 封面炙烤牛肉与海鲜',
+            lat: 37.5623906, lng: 126.9256371,
+            address: '首尔特别市 麻浦区 延南洞 387-39',
+            img: 'images/yeonjubang.jpg',
+            top: false,
+            hours: '17:00 - 24:00 (海鲜小酒馆)',
+            booking: '📱 CatchTable App 预约 / DM 预约',
+            memo: '类型：现代韩风海鲜小酒馆 ｜ 必点：炙烤牛肉片、时令海鲜下酒菜',
+            budget: '约 ¥130/人',
+            catchtable: true,
+            naverUrl: 'https://map.naver.com/p/search/%EC%97%B0%EC%A3%BC%EB%B0%A9%20%EC%96%B4%ED%8E%98%EC%96%B4'
           }
         ]
       }
@@ -829,16 +854,17 @@ const ITINERARY_DAYS = [
     id: 3,
     label: 'D3 圣水潮流·首尔林抱石',
     date: '9月14日 (周一 工作日)',
-    title: '圣水洞深度游 · 攀岩主题潮店 + 顶级碳水巡礼 + 首尔林岩馆 (工作日免排队！)',
+    title: '圣水洞深度游 · 攀岩主题潮店 + 顶级碳水巡礼 + 首尔林岩馆 4小时深度畅爬',
     color: '#af52de',
     spots: [
       {
-        name: '圣水洞 顶级烘焙碳水精选',
+        name: '圣水洞 顶级烘焙碳水精选 (4选1)',
+        shortName: '圣水早餐 (4选1)',
         kor: '성수동 베이커리/브런치',
         lat: 37.5416507, lng: 127.0611439,
         address: '首尔特别市 城东区 圣水洞二街 273-53',
         img: 'images/standard_bread.jpg',
-        time: '09:30 - 11:00',
+        time: '09:30 - 10:30',
         badge: '碳水名店列表 (周一免长队)',
         transit: '🚇 09:05 从钟路三街站乘地铁3号线转2号线至【圣水站】(22分钟)',
         desc: '',
@@ -852,7 +878,7 @@ const ITINERARY_DAYS = [
             top: true,
             hours: '09:00 - 21:00 (09:00 即开门！)',
             booking: '无需预约，上午 09:30 进店人少体验极佳',
-            memo: '圣水洞现象级吐司店！整条刚出炉撕开拉丝热吐司，搭配法式松露或伯爵茶黄油抹酱。',
+            memo: '类型：现烤生吐司专门店 ｜ 必点：刚出炉手撕热吐司、黑松露/伯爵茶抹酱',
             budget: '约 ¥50/人',
             catchtable: false,
             naverUrl: 'https://map.naver.com/p/search/%EC%8A%A4%ED%83%A0%EB%8B%A4%EB%93%9C%EB%B8%8C%EB%A0%88%EB%93%9C%20%EC%84%B1%EC%88%98'
@@ -866,7 +892,7 @@ const ITINERARY_DAYS = [
             top: false,
             hours: '11:00 - 21:00 (11:00 第一批出炉)',
             booking: '现场排队取号 (周一排队极快，建议 10:45 顺路取号)',
-            memo: '外壳酥脆到掉渣、内里黄油爆浆的冠军盐面包，每天限时出炉。',
+            memo: '类型：精品盐面包专门店 ｜ 必点：招牌脆皮爆浆盐面包',
             budget: '约 ¥40/人',
             catchtable: false,
             naverUrl: 'https://map.naver.com/p/search/%EB%B2%A0%ED%86%B5%20%EC%84%B1%EC%88%98'
@@ -880,7 +906,7 @@ const ITINERARY_DAYS = [
             top: false,
             hours: '11:00 - 19:00 (售罄即止)',
             booking: '现场选购 / 周一无需大排队',
-            memo: '圣水洞名物：橄榄芝士恰巴塔与招牌无花果发酵软包，外脆内韧。',
+            memo: '类型：顶级手工恰巴塔面包店 ｜ 必点：橄榄芝士恰巴塔、无花果软包',
             budget: '约 ¥45/人',
             catchtable: false,
             naverUrl: 'https://map.naver.com/p/search/%EC%84%B1%EC%88%98%EB%A5%B4%EC%B9%98%EC%95%84%EB%B0%94%ED%83%80'
@@ -894,7 +920,7 @@ const ITINERARY_DAYS = [
             top: false,
             hours: '11:00 - 20:00',
             booking: '现场入座 / 11点开门',
-            memo: '自制佛卡夏面包夹满浓郁黑松露酱、芝士与蜂蜜烤肉，口感层叠。',
+            memo: '类型：意式三明治轻食 ｜ 必点：黑松露蜂蜜烤肉佛卡夏三明治',
             budget: '约 ¥65/人',
             catchtable: false,
             naverUrl: 'https://map.naver.com/p/search/%EB%B2%84%ED%8B%B0%EC%83%8C%EB%93%9C%EC%9C%84%EC%B9%98%ED%95%98%EC%9A%B0%EC%8A%A4'
@@ -903,11 +929,12 @@ const ITINERARY_DAYS = [
       },
       {
         name: OFFICIAL_DATA.new_mix.name,
+        shortName: 'New Mix 咖啡',
         kor: OFFICIAL_DATA.new_mix.kor,
         lat: OFFICIAL_DATA.new_mix.lat, lng: OFFICIAL_DATA.new_mix.lng,
         address: OFFICIAL_DATA.new_mix.address,
         img: OFFICIAL_DATA.new_mix.img,
-        time: '11:00 - 11:35',
+        time: '10:30 - 11:00',
         badge: '【特色概念咖啡】摩登韩式速溶',
         hours: '🕒 营业时间: 11:00 - 20:00',
         transit: '🚶 从 Standard Bread 步行 2 分钟 (연무장3길 3)',
@@ -916,11 +943,12 @@ const ITINERARY_DAYS = [
       },
       {
         name: OFFICIAL_DATA.blue_elephant.name,
+        shortName: 'Blue Elephant',
         kor: OFFICIAL_DATA.blue_elephant.kor,
         lat: OFFICIAL_DATA.blue_elephant.lat, lng: OFFICIAL_DATA.blue_elephant.lng,
         address: OFFICIAL_DATA.blue_elephant.address,
         img: OFFICIAL_DATA.blue_elephant.img,
-        time: '11:35 - 12:15',
+        time: '11:00 - 11:35',
         badge: '【小众平价墨镜】爱豆同款设计',
         hours: '🕒 营业时间: 10:00 - 22:00',
         transit: '🚶 位于圣水二街主街 (연무장길 43-1)',
@@ -929,11 +957,12 @@ const ITINERARY_DAYS = [
       },
       {
         name: OFFICIAL_DATA.carbon_mg.name,
+        shortName: 'Carbon Mg 潮牌',
         kor: OFFICIAL_DATA.carbon_mg.kor,
         lat: OFFICIAL_DATA.carbon_mg.lat, lng: OFFICIAL_DATA.carbon_mg.lng,
         address: OFFICIAL_DATA.carbon_mg.address,
         img: OFFICIAL_DATA.carbon_mg.img,
-        time: '12:15 - 12:50',
+        time: '11:35 - 12:15',
         badge: '【必逛核心】攀岩主题服装潮店',
         hours: '🕒 营业时间: 11:30/12:00 - 20:00',
         transit: '🚶 与 Blue Elephant 同街相隔仅 50 米',
@@ -941,12 +970,13 @@ const ITINERARY_DAYS = [
         naverUrl: OFFICIAL_DATA.carbon_mg.naverUrl
       },
       {
-        name: '圣水洞 特色午餐精选',
+        name: '圣水洞 特色午餐精选 (2选1)',
+        shortName: '圣水午餐 (2选1)',
         kor: '성수동 점심 맛집',
         lat: 37.5377649, lng: 127.0552149,
         address: '首尔特别市 城东区 圣水洞二街 565-18',
         img: 'images/gyjaram.jpg',
-        time: '12:50 - 14:00',
+        time: '12:15 - 13:20',
         badge: '午餐候选列表',
         transit: '🚶 从服装店步行 5 分钟',
         desc: '',
@@ -960,7 +990,7 @@ const ITINERARY_DAYS = [
             top: true,
             hours: '11:30 - 22:00 (午休 14:30-16:30)',
             booking: '📱 现场 CatchTable 取号 / Naver 预约',
-            memo: '高评分炭烤鸡排！外皮微焦香脆，鸡腿肉汁水淋漓，搭配芝士沾酱与拌冷面。',
+            memo: '类型：炭火烤鸡排专门店 ｜ 必点：鲜嫩炭烤鸡腿排、芝士蘸酱、拌冷面',
             budget: '约 ¥95/人',
             catchtable: true,
             naverUrl: 'https://map.naver.com/p/search/%EC%88%AF%EB%B6%88%EB%8B%AD%EA%B0%88%EB%B9%84%20%EA%B3%84%EC%9E%90%EB%9E%8C%20%EC%84%B1%EC%88%98'
@@ -974,7 +1004,7 @@ const ITINERARY_DAYS = [
             top: false,
             hours: '11:00 - 20:00',
             booking: '现场入座',
-            memo: '高品质意式三明治轻食，黑松露蜂蜜搭配烤肉。',
+            memo: '类型：意式三明治轻食 ｜ 必点：黑松露蜂蜜烤肉佛卡夏三明治',
             budget: '约 ¥65/人',
             catchtable: false,
             naverUrl: 'https://map.naver.com/p/search/%EB%B2%84%ED%8B%B0%EC%83%8C%EB%93%9C%EC%9C%84%EC%B9%98%ED%95%98%EC%9A%B0%EC%8A%A4'
@@ -983,11 +1013,12 @@ const ITINERARY_DAYS = [
       },
       {
         name: OFFICIAL_DATA.olive_young_n.name,
+        shortName: 'Olive Young N',
         kor: OFFICIAL_DATA.olive_young_n.kor,
         lat: OFFICIAL_DATA.olive_young_n.lat, lng: OFFICIAL_DATA.olive_young_n.lng,
         address: OFFICIAL_DATA.olive_young_n.address,
         img: OFFICIAL_DATA.olive_young_n.img,
-        time: '14:00 - 14:50',
+        time: '13:25 - 14:10',
         badge: '【首尔最大旗舰店】5层美妆黑科技',
         hours: '🕒 营业时间: 10:00 - 22:00',
         transit: '🚶 位于圣水站4号口旁 (성수이로 88)',
@@ -996,55 +1027,71 @@ const ITINERARY_DAYS = [
       },
       {
         name: OFFICIAL_DATA.seoul_forest_climb.name,
+        shortName: '首尔林岩馆',
         kor: OFFICIAL_DATA.seoul_forest_climb.kor,
         lat: OFFICIAL_DATA.seoul_forest_climb.lat, lng: OFFICIAL_DATA.seoul_forest_climb.lng,
         address: OFFICIAL_DATA.seoul_forest_climb.address,
         img: OFFICIAL_DATA.seoul_forest_climb.img,
-        time: '15:00 - 17:30',
-        badge: '【岩馆 D2】抱石打卡',
+        time: '14:20 - 18:20 (4.0小时畅爬)',
+        badge: '【岩馆 D2】4小时深度抱石刷线',
         hours: '🕒 平日 10:00 - 23:00',
         transit: '🚶 从 Olive Young N 步行 12 分钟至首尔林岩馆 (首尔林站 5号口)',
-        desc: '圣水洞人气岩馆，设施新颖，定线富有创造力，临近首尔林。',
+        desc: '圣水洞超人气抱石岩馆！预留整整 4 个小时充裕体能，畅刷丰富定线、大角度屋檐与平衡线路；17:00 可在岩馆休息区用 CatchTable 提前远程取号晚饭。',
         naverUrl: OFFICIAL_DATA.seoul_forest_climb.naverUrl
       },
       {
-        name: '江南新沙 / 圣水 / 钟路 晚间美食精选',
+        name: '江南新沙 / 圣水 / 钟路 晚间美食精选 (4选1)',
+        shortName: '晚间美食 (4选1)',
         kor: '저녁 맛집 탐방',
-        lat: 37.5189623, lng: 127.024333,
-        address: '首尔特别市 江南区 新沙洞 540-20',
-        img: 'images/no_idea.jpg',
-        time: '18:30 - 20:30',
+        lat: 37.565647, lng: 126.9919844,
+        address: '首尔特别市 中区 乙支路 / 钟路区 / 江南区',
+        img: 'images/sancheong.jpg',
+        time: '18:50 - 21:00',
         badge: '晚餐候选列表',
-        transit: '🚇 乘水仁盆唐线转3号线至【新沙站】(15分钟)；或坐2号线回钟路',
+        transit: '🚇 乘2号线回钟路三街/乙支路；或乘水仁盆唐线转3号线至【新沙站】(15分钟)',
         desc: '',
         meals: [
           {
-            name: '노아이디어피자 신사점 (No Idea Pizza 新沙店)',
-            score: '4.76 ★ 🥇 新沙洞高分创意手工披萨',
-            lat: 37.5189623, lng: 127.024333,
-            address: '首尔特别市 江南区 新沙洞 540-20',
-            img: 'images/no_idea.jpg',
-            top: true,
-            hours: '12:00 - 21:30 (晚餐 17:00 开始)',
-            booking: '📱 现场 CatchTable 取号 / 直接入座',
-            memo: '新沙林荫道美式创意披萨，薄底香脆，招牌玉米芝士与微辣香肠披萨配精酿极赞。',
-            budget: '约 ¥95/人',
-            catchtable: true,
-            naverUrl: 'https://map.naver.com/p/search/%EB%85%B8%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4%ED%94%BC%EC%9E%90%20%EC%8B%A0%EC%82%AC'
-          },
-          {
-            name: '산청숯불가든 을지로2호점 (回钟路二刷黑猪肉)',
-            score: '4.85 ★ · 烤肉天花板',
+            name: '산청숯불가든 을지로 2호점 (山清炭火花园 2号店)',
+            score: '4.85 ★ 🥇 首尔黑猪肉天花板',
             lat: 37.565647, lng: 126.9919844,
             address: '首尔特别市 中区 乙支路三街 302-1',
             img: 'images/sancheong.jpg',
-            top: false,
-            hours: '11:30 - 23:00',
-            booking: '📱 CatchTable 远程取号 (在首尔林时即可App取号)',
-            memo: '顶级炭火黑猪肉，第一天没吃够可今晚回到钟路大本营继续二刷！',
+            top: true,
+            hours: '11:30 - 23:00 (最后点单 21:50)',
+            booking: '📱 CatchTable App 远程取号 (在首尔林岩馆时 17:00 提前App远程取号)',
+            memo: '类型：智异山炭火黑猪肉天花板 ｜ 必点：黑猪五花肉、特制泡菜与明兰',
             budget: '约 ¥160/人',
             catchtable: true,
-            naverUrl: 'https://map.naver.com/p/search/%EC%82%B0%EC%B2%AD%EC%8F%AF%EB%B6%88%EA%B0%80%EB%93%A0'
+            naverUrl: 'https://map.naver.com/p/search/%EC%82%B0%EC%B2%AD%EC%8F%AF%EB%B6%88%EA%B0%80%EB%93%A0%20%EC%9D%84%EC%A7%80%EB%A1%9C'
+          },
+          {
+            name: '광장시장 (广藏市场 小吃街)',
+            score: '4.48 ★ · 传统市井烟火夜市',
+            lat: 37.5701661, lng: 126.9990691,
+            address: '首尔特别市 钟路区 礼智洞 2-1',
+            img: 'images/gwangjang.jpg',
+            top: false,
+            hours: '09:00 - 23:00',
+            booking: '无需预约，现场随买随吃',
+            memo: '类型：传统市井小吃夜市 ｜ 必点：生牛肉活章鱼配蛋黄、顺熙家绿豆煎饼',
+            budget: '约 ¥60/人',
+            catchtable: false,
+            naverUrl: 'https://map.naver.com/p/search/%EA%B4%91%EC%9E%A5%EC%8B%9C%EC%9E%A5'
+          },
+          {
+            name: '노아이디어피자 신사점 (No Idea Pizza 新沙店)',
+            score: '4.76 ★ · 新沙洞高分创意手工披萨',
+            lat: 37.5189623, lng: 127.024333,
+            address: '首尔特别市 江南区 新沙洞 540-20',
+            img: 'images/no_idea.jpg',
+            top: false,
+            hours: '12:00 - 21:30 (晚餐 17:00 开始)',
+            booking: '📱 现场 CatchTable 取号 / 直接入座',
+            memo: '类型：美式手工薄底披萨 ｜ 必点：烤玉米芝士披萨、微辣香肠披萨',
+            budget: '约 ¥95/人',
+            catchtable: true,
+            naverUrl: 'https://map.naver.com/p/search/%EB%85%B8%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4%ED%94%BC%EC%9E%90%20%EC%8B%A0%EC%82%AC'
           },
           {
             name: '뽕나무쟁이 선릉본점 (江南微辣蹄髈)',
@@ -1055,7 +1102,7 @@ const ITINERARY_DAYS = [
             top: false,
             hours: '12:00 - 22:30 (午休 14:30-16:00)',
             booking: '现场入座',
-            memo: '江南区名店辣猪蹄，一半原味一半秘制微辣，软糯脱骨。',
+            memo: '类型：江南名店微辣猪蹄 ｜ 必点：半半猪蹄（原味+秘制微辣）',
             budget: '约 ¥110/人',
             catchtable: false,
             naverUrl: 'https://map.naver.com/p/search/%EB%BD%95%EB%82%98%EB%AC%B4%EC%9F%81%EC%9D%B4%20%EC%84%A0%EB%A6%89'
@@ -1073,6 +1120,7 @@ const ITINERARY_DAYS = [
     spots: [
       {
         name: '아티스트베이커리 안국 (Artist Bakery 安国店)',
+        shortName: 'Artist Bakery',
         kor: '아티스트베이커리 안국',
         lat: 37.5762555, lng: 126.9843435,
         address: '首尔特别市 钟路区 安国洞 164 (安国站1号口旁)',
@@ -1086,6 +1134,7 @@ const ITINERARY_DAYS = [
       },
       {
         name: OFFICIAL_DATA.hanok.name,
+        shortName: '北村韩屋村',
         kor: OFFICIAL_DATA.hanok.kor,
         lat: OFFICIAL_DATA.hanok.lat, lng: OFFICIAL_DATA.hanok.lng,
         address: OFFICIAL_DATA.hanok.address,
@@ -1098,6 +1147,7 @@ const ITINERARY_DAYS = [
       },
       {
         name: OFFICIAL_DATA.hyoja.name,
+        shortName: '孝子玉米面包',
         kor: OFFICIAL_DATA.hyoja.kor,
         lat: OFFICIAL_DATA.hyoja.lat, lng: OFFICIAL_DATA.hyoja.lng,
         address: OFFICIAL_DATA.hyoja.address,
@@ -1110,7 +1160,8 @@ const ITINERARY_DAYS = [
         naverUrl: OFFICIAL_DATA.hyoja.naverUrl
       },
       {
-        name: '景福宫 / 安国 / 明洞 传统名店午餐',
+        name: '景福宫 / 安国 / 明洞 传统名店午餐 (3选1)',
+        shortName: '传统午餐 (3选1)',
         kor: '경복궁/안국 점심 맛집',
         lat: 37.5756601, lng: 126.9714754,
         address: '首尔特别市 钟路区 内资洞 108',
@@ -1129,7 +1180,7 @@ const ITINERARY_DAYS = [
             top: true,
             hours: '12:00 - 21:30 (全天无休)',
             booking: '现场直接入座 / 米其林必比登',
-            memo: '景福宫西村老字号！首尔知名微辣猪蹄与独门清甜土豆排骨汤，肉香四溢。',
+            memo: '类型：米其林必比登推荐老字号 ｜ 必点：独门微辣软烂猪蹄、清甜土豆排骨汤',
             budget: '约 ¥90/人',
             catchtable: false,
             naverUrl: 'https://map.naver.com/p/search/%ED%95%A0%EB%A7%A4%EC%A7%91%20%EA%B2%BD%EB%B3%B5%EA%B5%81'
@@ -1143,7 +1194,7 @@ const ITINERARY_DAYS = [
             top: false,
             hours: '11:30 - 21:30 (午休 15:00-17:00)',
             booking: '🟢 Naver 预约 / 现场入座',
-            memo: '古老韩药房改造的高雅空间，主打精致传统牛肉定食与清爽冷拌面。',
+            memo: '类型：古风韩药房高雅餐厅 ｜ 必点：传统韩牛定食、清爽冷拌面',
             budget: '约 ¥120/人',
             catchtable: false,
             naverUrl: 'https://map.naver.com/p/search/%EC%95%88%EA%B5%AD%EC%95%BD%EB%B0%A9'
@@ -1157,7 +1208,7 @@ const ITINERARY_DAYS = [
             top: false,
             hours: '11:00 - 22:00 (全天无休)',
             booking: '现场直接入座',
-            memo: '巨型带骨大牛排！肉质极其软嫩，秘制甜咸酱汁浓郁下饭，配水冷面一绝。',
+            memo: '类型：传统大牛排骨名店 ｜ 必点：秘制大带骨炖牛排、正宗水冷面',
             budget: '约 ¥130/人',
             catchtable: false,
             naverUrl: 'https://map.naver.com/p/search/%EA%B0%95%EB%82%A8%EB%A9%B4%EC%98%A5%20%EB%AA%85%EB%8F%99'
@@ -1166,6 +1217,7 @@ const ITINERARY_DAYS = [
       },
       {
         name: OFFICIAL_DATA.ops.name,
+        shortName: 'OPS 伴手礼',
         kor: OFFICIAL_DATA.ops.kor,
         lat: OFFICIAL_DATA.ops.lat, lng: OFFICIAL_DATA.ops.lng,
         address: OFFICIAL_DATA.ops.address,
@@ -1179,6 +1231,7 @@ const ITINERARY_DAYS = [
       },
       {
         name: OFFICIAL_DATA.icn.name,
+        shortName: '仁川机场 T2',
         kor: OFFICIAL_DATA.icn.kor,
         lat: OFFICIAL_DATA.icn.lat, lng: OFFICIAL_DATA.icn.lng,
         address: OFFICIAL_DATA.icn.address,
@@ -1193,10 +1246,11 @@ const ITINERARY_DAYS = [
 ];
 
 /* ═══════════════════════════════════════════
-   Leaflet Map Controller with Dynamic Focus
+   Leaflet Map Controller with Dynamic Route & Directional Arrows
    ═══════════════════════════════════════════ */
 let map;
 let markerLayer;
+let routeLayer;
 let currentMarkers = {};
 
 function initMap() {
@@ -1210,82 +1264,188 @@ function initMap() {
     maxZoom: 19
   }).addTo(map);
 
+  routeLayer = L.featureGroup().addTo(map);
   markerLayer = L.featureGroup().addTo(map);
 }
 
+function drawRouteWithArrows(latlngs, color) {
+  if (!latlngs || latlngs.length < 2) return;
+
+  // Background smooth glow halo
+  L.polyline(latlngs, {
+    color: color,
+    weight: 6,
+    opacity: 0.22,
+    lineCap: 'round',
+    lineJoin: 'round'
+  }).addTo(routeLayer);
+
+  // Main dashed route line
+  L.polyline(latlngs, {
+    color: color,
+    weight: 3.5,
+    opacity: 0.9,
+    dashArray: '6, 6',
+    lineCap: 'round',
+    lineJoin: 'round'
+  }).addTo(routeLayer);
+
+  // Directional arrows along each segment
+  for (let i = 0; i < latlngs.length - 1; i++) {
+    const p1 = latlngs[i];
+    const p2 = latlngs[i + 1];
+    const midLat = (p1[0] + p2[0]) / 2;
+    const midLng = (p1[1] + p2[1]) / 2;
+    const dLng = p2[1] - p1[1];
+    const dLat = p2[0] - p1[0];
+    if (Math.abs(dLng) < 0.00001 && Math.abs(dLat) < 0.00001) continue;
+
+    // Mercator aspect ratio compensation at ~37.5 deg N: cos(37.5) ≈ 0.793
+    const angle = (Math.atan2(dLng * 0.793, dLat) * 180 / Math.PI + 360) % 360;
+
+    const arrowIcon = L.divIcon({
+      className: 'route-arrow-wrap',
+      html: `<div class="route-arrow" style="transform: rotate(${angle - 90}deg); color: ${color};">➤</div>`,
+      iconSize: [22, 22],
+      iconAnchor: [11, 11]
+    });
+    L.marker([midLat, midLng], { icon: arrowIcon, interactive: false }).addTo(routeLayer);
+  }
+}
+
 function renderMapMarkers(dayId) {
-  if (!markerLayer) return;
+  if (!markerLayer || !routeLayer) return;
   markerLayer.clearLayers();
+  routeLayer.clearLayers();
   currentMarkers = {};
 
   let bounds = [];
-  const spotsToRender = [];
 
   if (dayId === 0) {
+    // Overview: Draw connected routes for all 4 days
     for (let i = 1; i < ITINERARY_DAYS.length; i++) {
-      ITINERARY_DAYS[i].spots.forEach(s => spotsToRender.push({ ...s, isCandidate: false }));
+      const d = ITINERARY_DAYS[i];
+      const dColor = d.color || '#ff385c';
+      const dPoints = [];
+
+      d.spots.forEach((spot, idx) => {
+        if (!spot.lat || !spot.lng) return;
+        dPoints.push([spot.lat, spot.lng]);
+        bounds.push([spot.lat, spot.lng]);
+
+        let label = spot.shortName || spot.name.split(' ')[0].split('(')[0];
+
+        const customIcon = L.divIcon({
+          className: 'custom-pin-wrap',
+          html: `<div class="map-pill-pin"><span class="seq-num" style="background:${dColor};">${idx + 1}</span>${label}</div>`,
+          iconSize: [96, 26],
+          iconAnchor: [48, 13]
+        });
+
+        const marker = L.marker([spot.lat, spot.lng], { icon: customIcon });
+        marker.bindPopup(`
+          <div style="font-family:var(--font-stack);font-size:13px;max-width:220px;padding:4px;">
+            ${spot.img ? `<img src="${spot.img}" style="width:100%;height:100px;object-fit:cover;border-radius:6px;margin-bottom:6px;" alt="${spot.name}"/>` : ''}
+            <b style="font-size:14px;color:var(--ink);display:block;">${spot.name}</b>
+            <div style="color:var(--muted);font-size:11.5px;margin:2px 0;">${spot.address || spot.kor || ''}</div>
+            ${spot.time ? `<div style="font-size:11.5px;color:var(--body);margin-top:2px;">🕒 ${spot.time}</div>` : ''}
+            ${spot.naverUrl ? `<div style="margin-top:6px;"><a href="${spot.naverUrl}" target="_blank" style="color:#007aff;font-weight:700;font-size:12px;">在 Naver Map 打开导航 →</a></div>` : ''}
+          </div>
+        `);
+        markerLayer.addLayer(marker);
+        currentMarkers[spot.name] = marker;
+      });
+
+      drawRouteWithArrows(dPoints, dColor);
     }
   } else {
+    // Single Day View: Clean linear path + Candidate Restaurant sub-pins
     const d = ITINERARY_DAYS.find(x => x.id === dayId);
     if (d && d.spots) {
-      d.spots.forEach(s => {
-        spotsToRender.push({ ...s, isCandidate: false });
-        if (s.meals && s.meals.length > 0) {
-          s.meals.forEach(m => {
+      const dColor = d.color || '#ff385c';
+      const mainRoutePoints = [];
+
+      d.spots.forEach((spot, idx) => {
+        if (!spot.lat || !spot.lng) return;
+
+        mainRoutePoints.push([spot.lat, spot.lng]);
+        bounds.push([spot.lat, spot.lng]);
+
+        const isHighlight = spot.badge && (spot.badge.includes('岩馆') || spot.badge.includes('必买') || spot.badge.includes('必逛') || spot.badge.includes('🥇'));
+        let pillClass = 'map-pill-pin';
+        if (isHighlight) pillClass += ' rausch';
+
+        let label = spot.shortName || spot.name.split(' ')[0].split('(')[0];
+
+        const customIcon = L.divIcon({
+          className: 'custom-pin-wrap',
+          html: `<div class="${pillClass}"><span class="seq-num" style="${isHighlight ? 'background:#fff;color:var(--primary);' : `background:${dColor};`}">${idx + 1}</span>${label}</div>`,
+          iconSize: [98, 26],
+          iconAnchor: [49, 13]
+        });
+
+        const marker = L.marker([spot.lat, spot.lng], { icon: customIcon });
+        marker.bindPopup(`
+          <div style="font-family:var(--font-stack);font-size:13px;max-width:220px;padding:4px;">
+            ${spot.img ? `<img src="${spot.img}" style="width:100%;height:100px;object-fit:cover;border-radius:6px;margin-bottom:6px;" alt="${spot.name}"/>` : ''}
+            <b style="font-size:14px;color:var(--ink);display:block;">${idx + 1}. ${spot.name}</b>
+            <div style="color:var(--muted);font-size:11.5px;margin:2px 0;">${spot.address || spot.kor || ''}</div>
+            ${spot.time ? `<div style="font-size:11.5px;color:var(--body);margin-top:2px;">🕒 ${spot.time}</div>` : ''}
+            ${spot.naverUrl ? `<div style="margin-top:6px;"><a href="${spot.naverUrl}" target="_blank" style="color:#007aff;font-weight:700;font-size:12px;">在 Naver Map 打开导航 →</a></div>` : ''}
+          </div>
+        `);
+        markerLayer.addLayer(marker);
+        currentMarkers[spot.name] = marker;
+
+        // If this spot is a meal hub with multiple candidate restaurants:
+        if (spot.meals && spot.meals.length > 0) {
+          spot.meals.forEach(m => {
             if (m.lat && m.lng) {
-              spotsToRender.push({
-                name: m.name,
-                kor: m.name,
-                lat: m.lat,
-                lng: m.lng,
-                address: m.address,
-                img: m.img,
-                time: m.hours,
-                badge: m.score,
-                isCandidate: true,
-                naverUrl: m.naverUrl
+              bounds.push([m.lat, m.lng]);
+
+              // Draw subtle connector from the Meal Hub to candidate restaurant
+              if (m.lat !== spot.lat || m.lng !== spot.lng) {
+                L.polyline([[spot.lat, spot.lng], [m.lat, m.lng]], {
+                  color: '#94a3b8',
+                  weight: 1.5,
+                  opacity: 0.6,
+                  dashArray: '3, 4'
+                }).addTo(routeLayer);
+              }
+
+              let mealLabel = m.name.split(' ')[0].split('(')[0];
+              if (mealLabel.length > 6) mealLabel = mealLabel.substring(0, 6);
+
+              const candidateIcon = L.divIcon({
+                className: 'custom-pin-wrap',
+                html: `<div class="map-pill-pin candidate">🍽️ ${mealLabel}</div>`,
+                iconSize: [84, 24],
+                iconAnchor: [42, 12]
               });
+
+              const cMarker = L.marker([m.lat, m.lng], { icon: candidateIcon });
+              cMarker.bindPopup(`
+                <div style="font-family:var(--font-stack);font-size:13px;max-width:220px;padding:4px;">
+                  ${m.img ? `<img src="${m.img}" style="width:100%;height:100px;object-fit:cover;border-radius:6px;margin-bottom:6px;" alt="${m.name}"/>` : ''}
+                  <b style="font-size:14px;color:var(--ink);display:block;">🍽️ ${m.name}</b>
+                  <div style="color:var(--primary);font-size:11.5px;font-weight:700;">${m.score || ''}</div>
+                  <div style="color:var(--muted);font-size:11.5px;margin:2px 0;">${m.address || ''}</div>
+                  ${m.hours ? `<div style="font-size:11.5px;color:var(--body);margin-top:2px;">🕒 ${m.hours}</div>` : ''}
+                  ${m.memo ? `<div style="font-size:11.5px;color:var(--body);margin-top:4px;line-height:1.3;">${m.memo}</div>` : ''}
+                  ${m.naverUrl ? `<div style="margin-top:6px;"><a href="${m.naverUrl}" target="_blank" style="color:#007aff;font-weight:700;font-size:12px;">在 Naver Map 打开导航 →</a></div>` : ''}
+                </div>
+              `);
+              markerLayer.addLayer(cMarker);
+              currentMarkers[m.name] = cMarker;
             }
           });
         }
       });
+
+      // Draw the main connected route with directional arrows
+      drawRouteWithArrows(mainRoutePoints, dColor);
     }
   }
-
-  spotsToRender.forEach(spot => {
-    if (!spot.lat || !spot.lng) return;
-
-    const isHighlight = spot.badge && (spot.badge.includes('岩馆') || spot.badge.includes('必买') || spot.badge.includes('必逛') || spot.badge.includes('🥇'));
-    let pillClass = 'map-pill-pin';
-    if (spot.isCandidate) pillClass += ' candidate';
-    else if (isHighlight) pillClass += ' rausch';
-
-    let shortLabel = spot.name.split(' ')[0].split('(')[0];
-    if (shortLabel.length > 7) shortLabel = shortLabel.substring(0, 7);
-
-    const customIcon = L.divIcon({
-      className: 'custom-pin-wrap',
-      html: `<div class="${pillClass}">${spot.isCandidate ? '🍽️ ' : ''}${shortLabel}</div>`,
-      iconSize: [84, 26],
-      iconAnchor: [42, 13]
-    });
-
-    const marker = L.marker([spot.lat, spot.lng], { icon: customIcon });
-    
-    marker.bindPopup(`
-      <div style="font-family:var(--font-stack);font-size:13px;max-width:220px;padding:4px;">
-        ${spot.img ? `<img src="${spot.img}" style="width:100%;height:100px;object-fit:cover;border-radius:6px;margin-bottom:6px;" alt="${spot.name}"/>` : ''}
-        <b style="font-size:14px;color:var(--ink);display:block;">${spot.name}</b>
-        <div style="color:var(--muted);font-size:11.5px;margin:2px 0;">${spot.address || spot.kor || ''}</div>
-        ${spot.time ? `<div style="font-size:11.5px;color:var(--body);margin-top:2px;">🕒 ${spot.time}</div>` : ''}
-        ${spot.naverUrl ? `<div style="margin-top:6px;"><a href="${spot.naverUrl}" target="_blank" style="color:#007aff;font-weight:700;font-size:12px;">在 Naver Map 打开导航 →</a></div>` : ''}
-      </div>
-    `);
-
-    markerLayer.addLayer(marker);
-    currentMarkers[spot.name] = marker;
-    bounds.push([spot.lat, spot.lng]);
-  });
 
   if (bounds.length > 0) {
     map.fitBounds(bounds, { padding: [40, 40], maxZoom: 15 });
@@ -1337,7 +1497,7 @@ function renderFeed(dayId) {
         <div class="stat-box">
           <div class="stat-label">🧗 抱石打卡</div>
           <div class="stat-val">PEAKERS 钟路店 (影院改造)<br>Seoul Forest 圣水店 (首尔林)</div>
-          <div class="stat-sub">周六室内爬岩 + 周一错峰圣水洞</div>
+          <div class="stat-sub">周六首刷影院岩馆 + 周一 4小时深度畅爬首尔林</div>
         </div>
         <div class="stat-box">
           <div class="stat-label">👕 潮流逛街</div>
@@ -1377,7 +1537,7 @@ function renderFeed(dayId) {
     subEl.textContent = d.title;
 
     let html = '';
-    d.spots.forEach(spot => {
+    d.spots.forEach((spot, idx) => {
       let mealsHtml = '';
       if (spot.meals && spot.meals.length > 0) {
         mealsHtml += `
@@ -1421,12 +1581,12 @@ function renderFeed(dayId) {
           <div class="badge-float-left ${spot.badge?.includes('首选') || spot.badge?.includes('必买') || spot.badge?.includes('必逛') ? 'highlight' : ''}">
             ${spot.badge || '精选打卡'}
           </div>
-          <div class="time-pill-float">🕒 ${spot.time}</div>
+          <div class="time-pill-float">第 ${idx + 1} 站 · ${spot.time}</div>
         </div>
       ` : `
         <div style="padding: 16px 18px 0; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
           <span class="badge-float-left" style="position:static;box-shadow:none;background:var(--surface-soft);border:1px solid var(--hairline);">${spot.badge || '航班'}</span>
-          <span style="font-size:12px;font-weight:700;color:var(--muted);">🕒 ${spot.time}</span>
+          <span style="font-size:12px;font-weight:700;color:var(--muted);">第 ${idx + 1} 站 · ${spot.time}</span>
         </div>
       `;
 
@@ -1440,7 +1600,7 @@ function renderFeed(dayId) {
           <div class="card-body">
             <div class="card-title-row">
               <div>
-                <h3 class="card-title">${spot.name}</h3>
+                <h3 class="card-title">${idx + 1}. ${spot.name}</h3>
                 <div class="card-kor-name">${spot.kor || ''}</div>
               </div>
             </div>
@@ -1456,10 +1616,10 @@ function renderFeed(dayId) {
 
             ${mealsHtml}
 
+            ${spot.naverUrl ? `
             <div class="card-bottom-actions">
-              ${spot.naverUrl ? `<a href="${spot.naverUrl}" target="_blank" class="btn-outline" onclick="event.stopPropagation()">🟢 打开 Naver Map 导航</a>` : ''}
-              <a href="https://www.xiaohongshu.com/explore?keyword=${encodeURIComponent(spot.name)}" target="_blank" class="btn-outline" onclick="event.stopPropagation()">📕 小红书实拍与攻略</a>
-            </div>
+              <a href="${spot.naverUrl}" target="_blank" class="btn-outline" onclick="event.stopPropagation()">🟢 打开 Naver Map 导航</a>
+            </div>` : ''}
           </div>
         </article>
       `;
