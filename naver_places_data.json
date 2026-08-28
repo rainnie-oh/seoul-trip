@@ -1,0 +1,1257 @@
+{
+  "광장시장": {
+    "sid": "21075936",
+    "name": "광장시장",
+    "lat": 37.5701661,
+    "lng": 126.9990691,
+    "address": "首尔特别市 钟路区 礼智洞 2-1",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20150831_208/1441015652359wLYkJ_JPEG/156675583839830_0.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20150831_208/1441015652359wLYkJ_JPEG/156675583839830_0.jpg",
+      "https://ldb-phinf.pstatic.net/20150831_75/14410156525691g1A5_JPEG/156675583839830_1.jpg",
+      "https://ldb-phinf.pstatic.net/20150831_145/1441015652851DFPxu_JPEG/156675583839830_2.jpg",
+      "https://ldb-phinf.pstatic.net/20220725_120/16587415887711aFIM_JPEG/20220725_061724.jpg"
+    ],
+    "category": {
+      "category": "시장",
+      "categoryCodeList": [
+        "223563",
+        "223564",
+        "223600",
+        "229327"
+      ]
+    }
+  },
+  "산청숯불가든 을지로 2호점": {
+    "sid": "1069950349",
+    "name": "산청숯불가든 을지로 2호점",
+    "lat": 37.565647,
+    "lng": 126.9919844,
+    "address": "首尔特别市 中区 乙支路三街 302-1",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20240903_86/1725343492917xFaQn_PNG/%BB%EA%C3%BB_%B7%CE%B0%ED_%C0%FC%C3%BC_%C0%FC%B4%DE%BF%EB-07.png",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20240903_86/1725343492917xFaQn_PNG/%BB%EA%C3%BB_%B7%CE%B0%ED_%C0%FC%C3%BC_%C0%FC%B4%DE%BF%EB-07.png",
+      "https://ldb-phinf.pstatic.net/20240909_157/1725851987046mzva8_PNG/%C0%BB%C1%F6%B7%CE_%BA%B0%B0%FC_3.png",
+      "https://ldb-phinf.pstatic.net/20240909_182/1725851974401R9sYt_PNG/%C0%BB%C1%F6%B7%CE_%BA%B0%B0%FC_1.png",
+      "https://ldb-phinf.pstatic.net/20250624_166/1750731260493hT6s9_PNG/20250624_111409.png"
+    ],
+    "category": {
+      "category": "육류,고기요리",
+      "categoryCodeList": [
+        "220036",
+        "220037",
+        "220075",
+        "220733"
+      ]
+    }
+  },
+  "베이커리 아궁": {
+    "sid": "2055233204",
+    "name": "베이커리 아궁",
+    "lat": 37.569479,
+    "lng": 126.9831475,
+    "address": "首尔特别市 钟路区 贯铁洞 290",
+    "memo": "",
+    "img": "https://ldb-phinf.pstatic.net/20260127_110/1769502951030dJfeD_JPEG/260123_%BA%A3%C0%CC%C4%BF%B8%AE%BE%C6%B1%C3%28%B5%F0%C0%DA%C0%CE%BF%A1%BC%C2%BB%E7%C1%F8%29_47.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20260127_110/1769502951030dJfeD_JPEG/260123_%BA%A3%C0%CC%C4%BF%B8%AE%BE%C6%B1%C3%28%B5%F0%C0%DA%C0%CE%BF%A1%BC%C2%BB%E7%C1%F8%29_47.jpg",
+      "https://ldb-phinf.pstatic.net/20260127_79/1769502979645MkbNG_JPEG/260123_%BA%A3%C0%CC%C4%BF%B8%AE%BE%C6%B1%C3%28%B5%F0%C0%DA%C0%CE%BF%A1%BC%C2%BB%E7%C1%F8%29_68.jpg",
+      "https://ldb-phinf.pstatic.net/20260127_201/1769502850710A3VUy_JPEG/260123_%BA%A3%C0%CC%C4%BF%B8%AE%BE%C6%B1%C3%28%B5%F0%C0%DA%C0%CE%BF%A1%BC%C2%BB%E7%C1%F8%29_03.jpg",
+      "https://ldb-phinf.pstatic.net/20260127_75/1769502876238oVTey_JPEG/260123_%BA%A3%C0%CC%C4%BF%B8%AE%BE%C6%B1%C3%28%B5%F0%C0%DA%C0%CE%BF%A1%BC%C2%BB%E7%C1%F8%29_13.jpg"
+    ],
+    "category": {
+      "category": "베이커리",
+      "categoryCodeList": [
+        "220036",
+        "220052",
+        "220564",
+        "221161"
+      ]
+    }
+  },
+  "수라간": {
+    "sid": "1063954725",
+    "name": "수라간",
+    "lat": 37.5619497,
+    "lng": 126.9246381,
+    "address": "首尔特别市 麻浦区 延南洞 228-56",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20260724_147/1784864447812CDrR7_JPEG/%B8%DE%C0%CE%BB%E7%C1%F81.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20260724_147/1784864447812CDrR7_JPEG/%B8%DE%C0%CE%BB%E7%C1%F81.jpg",
+      "https://ldb-phinf.pstatic.net/20190608_66/155996456869091NSx_JPEG/xp5RJlwTdI--0q13cjySj1u-.jpg",
+      "https://ldb-phinf.pstatic.net/20200630_120/1593493227260iyC81_PNG/NbgetLJ3W0idszBnuRFRtnYg.png",
+      "https://ldb-phinf.pstatic.net/20200630_214/1593493227274dIURs_PNG/NNT2rki0uuamrmCKsdzcxHCp.png"
+    ],
+    "category": {
+      "category": "한정식",
+      "categoryCodeList": [
+        "220036",
+        "220037",
+        "220056",
+        "220594"
+      ]
+    }
+  },
+  "소신이쏘 신촌본점": {
+    "sid": "36324567",
+    "name": "소신이쏘 신촌본점",
+    "lat": 37.5572041,
+    "lng": 126.9355349,
+    "address": "首尔特别市 西大门区 沧川洞 57-39",
+    "memo": "美味辣炖牛排骨",
+    "img": "https://ldb-phinf.pstatic.net/20210825_28/16298592583302IBGh_JPEG/6cdzDUsV3pC_8O0XHZqfwLXQ.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20210825_28/16298592583302IBGh_JPEG/6cdzDUsV3pC_8O0XHZqfwLXQ.jpg",
+      "https://ldb-phinf.pstatic.net/20210825_278/1629859258108FDQ0F_JPEG/rlHdwmG-9gB_xwVeXHvI-FcV.jpg",
+      "https://ldb-phinf.pstatic.net/20210825_214/1629859258097vsQ2K_JPEG/RpyAQUbmitt9p0VIH8bsL1Gm.jpg",
+      "https://ldb-phinf.pstatic.net/20210825_175/1629859258073vvTfz_JPEG/NQwEPUw3M9zRle8ejmr05lcY.jpg"
+    ],
+    "category": {
+      "category": "육류,고기요리",
+      "categoryCodeList": [
+        "220036",
+        "220037",
+        "220075",
+        "220733"
+      ]
+    }
+  },
+  "카멜로연남": {
+    "sid": "1237104695",
+    "name": "카멜로연남",
+    "lat": 37.5613559,
+    "lng": 126.9263771,
+    "address": "首尔特别市 麻浦区 延南洞 383-23",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20210804_92/1628006656870THrlG_JPEG/OTAxno2A6Uy8ROsyITtMtnI7.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20210804_92/1628006656870THrlG_JPEG/OTAxno2A6Uy8ROsyITtMtnI7.jpg",
+      "https://ldb-phinf.pstatic.net/20220125_77/16431167604896o245_JPEG/CYMERA_20220125_184802.jpg",
+      "https://ldb-phinf.pstatic.net/20210804_110/1628006666817zvG4F_JPEG/SZmWkFq0w9lqsnivR4rQyuC6.jpg",
+      "https://ldb-phinf.pstatic.net/20211113_225/1636745471827lm2Wo_JPEG/Screenshot_20211111-183115_Naver_Map.jpg"
+    ],
+    "category": {
+      "category": "양식",
+      "categoryCodeList": [
+        "220036",
+        "220044",
+        "220126"
+      ]
+    }
+  },
+  "뽕나무쟁이 선릉본점": {
+    "sid": "13468956",
+    "name": "뽕나무쟁이 선릉본점",
+    "lat": 37.5032108,
+    "lng": 127.0520516,
+    "address": "首尔特别市 江南区 大峙洞 896-5",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20161209_112/14812144599157O5dV_JPEG/177159415759626_0.jpeg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20161209_112/14812144599157O5dV_JPEG/177159415759626_0.jpeg",
+      "https://ldb-phinf.pstatic.net/20171221_175/1513785335213dwGrL_JPEG/_Z3tVfy7CJOCTMlSN5JIC6uf.jpg",
+      "https://ldb-phinf.pstatic.net/20171221_90/1513785336268TwyFM_JPEG/M5Ffg6fs2mzAvBkdRY4D3qn3.jpg",
+      "https://ldb-phinf.pstatic.net/20171221_211/1513785336398gLfiY_JPEG/ENRHYLFoeneeCek8ptmOUFpV.jpg"
+    ],
+    "category": {
+      "category": "족발,보쌈",
+      "categoryCodeList": [
+        "220036",
+        "220037",
+        "220075",
+        "220766",
+        "221504"
+      ]
+    }
+  },
+  "도마 홍대본점": {
+    "sid": "13291366",
+    "name": "도마 홍대본점",
+    "lat": 37.5530754,
+    "lng": 126.921419,
+    "address": "首尔特别市 麻浦区 西桥洞 357-3",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20260319_274/1773931450603pvWsh_PNG/%B0%A5%BA%F1.png",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20260319_274/1773931450603pvWsh_PNG/%B0%A5%BA%F1.png",
+      "https://ldb-phinf.pstatic.net/20250425_6/1745571338339IMkQ6_JPEG/KakaoTalk_20250425_163940004_01.jpg",
+      "https://ldb-phinf.pstatic.net/20260318_36/1773836071732TdauX_JPEG/%B5%C8%C0%E5%C2%EE%B0%B3_2.jpg",
+      "https://ldb-phinf.pstatic.net/20250213_218/1739442270855pCxQ4_JPEG/DSC09962.jpg"
+    ],
+    "category": {
+      "category": "육류,고기요리",
+      "categoryCodeList": [
+        "220036",
+        "220037",
+        "220075",
+        "220733"
+      ]
+    }
+  },
+  "노아이디어피자 신사점": {
+    "sid": "2075342322",
+    "name": "노아이디어피자 신사점",
+    "lat": 37.5189623,
+    "lng": 127.024333,
+    "address": "首尔特别市 江南区 新沙洞 540-20",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20251017_59/1760689410971hQnIA_JPEG/P20250927_140819047_C315E9B8-DF5C-4C96-B5B5-174A3008917E.JPG",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20251017_59/1760689410971hQnIA_JPEG/P20250927_140819047_C315E9B8-DF5C-4C96-B5B5-174A3008917E.JPG",
+      "https://ldb-phinf.pstatic.net/20260730_144/1785406949247GBd9Q_JPEG/%B3%EB%BE%C6%C0%CC%B5%F0%BE%EE%C7%C7%C0%DA_%B4%EB%C7%A5%BB%E7%C1%F8_%B8%C6%C1%D6.jpg",
+      "https://ldb-phinf.pstatic.net/20260720_139/1784521888087PdDB0_JPEG/%C7%C3%B7%B9%C0%CC%BD%BA%C4%C6_%C6%ED%C1%FD%BA%BB-028.jpg",
+      "https://ldb-phinf.pstatic.net/20250928_93/17590282829921vb1c_JPEG/image.jpg"
+    ],
+    "category": {
+      "category": "피자",
+      "categoryCodeList": [
+        "220036",
+        "220044",
+        "220136",
+        "220944"
+      ]
+    }
+  },
+  "어흥식당 고대점": {
+    "sid": "1638312330",
+    "name": "어흥식당 고대점",
+    "lat": 37.5881286,
+    "lng": 127.0298655,
+    "address": "首尔特别市 城北区 安岩洞五街 15-2",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20190907_11/1567793414049SogDW_JPEG/3DPqk2Df5vCZxsQ6JMwXdQKo.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20190907_11/1567793414049SogDW_JPEG/3DPqk2Df5vCZxsQ6JMwXdQKo.jpg",
+      "https://ldb-phinf.pstatic.net/20190904_298/1567608905278BOFaq_JPEG/JfRyF8i2DI-Wn9PoImD3ZP8D.jpg",
+      "https://ldb-phinf.pstatic.net/20190904_103/1567609029311DI6dA_JPEG/WXAGtWOl3zQYQs-uDmsAeS2G.jpg"
+    ],
+    "category": {
+      "category": "스테이크,립",
+      "categoryCodeList": [
+        "220036",
+        "220044",
+        "220134",
+        "220934"
+      ]
+    }
+  },
+  "스탠다드브레드 성수": {
+    "sid": "1720159258",
+    "name": "스탠다드브레드 성수",
+    "lat": 37.5416507,
+    "lng": 127.0611439,
+    "address": "首尔特别市 城东区 圣水洞二街 273-53",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20260620_69/1781935388892OJVku_JPEG/%C8%A3%B9%DA%B3%D7%C0%CC%B9%F6.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20260620_69/1781935388892OJVku_JPEG/%C8%A3%B9%DA%B3%D7%C0%CC%B9%F6.jpg",
+      "https://ldb-phinf.pstatic.net/20260722_196/1784720003583QrCMU_JPEG/%BA%D2%C6%F7%BD%BA%C5%CD.jpg",
+      "https://ldb-phinf.pstatic.net/20260722_68/1784719990277lwKIH_JPEG/%BA%B9_%C6%F7%BD%BA%C5%CD.jpg",
+      "https://ldb-phinf.pstatic.net/20240913_4/1726210380897LEzkW_JPEG/240719_%BD%BA%C5%C4%B4%D9%B5%E5%BA%EA%B7%B9%B5%E5_22-min.jpg"
+    ],
+    "category": {
+      "category": "카페,디저트",
+      "categoryCodeList": [
+        "220036",
+        "220052",
+        "220563"
+      ]
+    }
+  },
+  "베통 성수": {
+    "sid": "365858525",
+    "name": "베통 성수",
+    "lat": 37.5429356,
+    "lng": 127.0552214,
+    "address": "首尔特别市 城东区 圣水洞二街 315-47",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20231128_295/1701142372507SDziS_JPEG/1.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20231128_295/1701142372507SDziS_JPEG/1.jpg",
+      "https://ldb-phinf.pstatic.net/20231128_50/1701142372492v0KEK_JPEG/3.jpg",
+      "https://ldb-phinf.pstatic.net/20231128_31/1701142372503WksXa_JPEG/2.jpg",
+      "https://ldb-phinf.pstatic.net/20231128_226/1701142372723yTfwy_JPEG/6.jpg"
+    ],
+    "category": {
+      "category": "카페,디저트",
+      "categoryCodeList": [
+        "220036",
+        "220052",
+        "220563"
+      ]
+    }
+  },
+  "효자베이커리": {
+    "sid": "17898357",
+    "name": "효자베이커리",
+    "lat": 37.5809361,
+    "lng": 126.9686596,
+    "address": "首尔特别市 钟路区 通仁洞 43-1",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20230303_37/16778233279576CL3x_JPEG/20230303_150107.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20230303_37/16778233279576CL3x_JPEG/20230303_150107.jpg",
+      "https://ldb-phinf.pstatic.net/20230303_209/16778233223171EW8c_JPEG/20230303_150116.jpg",
+      "https://ldb-phinf.pstatic.net/20230303_237/1677823304996KnLl9_JPEG/20230303_150119.jpg",
+      "https://ldb-phinf.pstatic.net/20151104_99/1446623078021oqor4_JPEG/167054567456654_0.jpg"
+    ],
+    "category": {
+      "category": "베이커리",
+      "categoryCodeList": [
+        "220036",
+        "220052",
+        "220564",
+        "221161"
+      ]
+    }
+  },
+  "성수르치아바타": {
+    "sid": "2019126383",
+    "name": "성수르치아바타",
+    "lat": 37.5432562,
+    "lng": 127.0542069,
+    "address": "首尔特别市 城东区 圣水洞二街 316-24",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20260626_123/1782450372375jAyKl_JPEG/%BC%BA%BC%F6%B8%A3%C4%A1%BE%C6%B9%D9%C5%B8_%B7%CE%B0%ED%28%C3%B5%C7%CF%C1%A6%BB%A7%29_%BA%B8%B5%B5%C0%DA%B7%E1%BF%EB_1.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20260626_123/1782450372375jAyKl_JPEG/%BC%BA%BC%F6%B8%A3%C4%A1%BE%C6%B9%D9%C5%B8_%B7%CE%B0%ED%28%C3%B5%C7%CF%C1%A6%BB%A7%29_%BA%B8%B5%B5%C0%DA%B7%E1%BF%EB_1.jpg",
+      "https://ldb-phinf.pstatic.net/20260818_33/1787050175910rPjRX_JPEG/KakaoTalk_20260817_165827323.jpg"
+    ],
+    "category": {
+      "category": "베이커리",
+      "categoryCodeList": [
+        "220036",
+        "220052",
+        "220564",
+        "221161"
+      ]
+    }
+  },
+  "아민 연남": {
+    "sid": "1775967927",
+    "name": "아민 연남",
+    "lat": 37.5637057,
+    "lng": 126.9268894,
+    "address": "首尔特别市 麻浦区 延南洞 224-5",
+    "memo": "送前菜，人均150左右的地中海饮食",
+    "img": "https://naverbooking-phinf.pstatic.net/20251115_239/1763190954373XPy50_JPEG/image.jpg",
+    "photos": [
+      "https://naverbooking-phinf.pstatic.net/20251115_239/1763190954373XPy50_JPEG/image.jpg",
+      "https://naverbooking-phinf.pstatic.net/20251115_55/1763190948198OLn9D_JPEG/image.jpg",
+      "https://naverbooking-phinf.pstatic.net/20251115_23/1763190950409qcozX_JPEG/image.jpg",
+      "https://ldb-phinf.pstatic.net/20251115_148/1763191606656aasU3_JPEG/1000033982.jpg"
+    ],
+    "category": {
+      "category": "양식",
+      "categoryCodeList": [
+        "220036",
+        "220044",
+        "220126"
+      ]
+    }
+  },
+  "모닝웨이": {
+    "sid": "1730728680",
+    "name": "모닝웨이",
+    "lat": 37.5747424,
+    "lng": 127.0261894,
+    "address": "首尔特别市 东大门区 新设洞 97-8",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20230308_292/1678280690021yM0YJ_JPEG/%B8%F0%B4%D7%BF%FE%C0%CC_%B7%CE%B0%ED%C0%CC%B9%CC%C1%F6.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20230308_292/1678280690021yM0YJ_JPEG/%B8%F0%B4%D7%BF%FE%C0%CC_%B7%CE%B0%ED%C0%CC%B9%CC%C1%F6.jpg",
+      "https://ldb-phinf.pstatic.net/20260427_90/1777276002347JJc0b_JPEG/3.jpg",
+      "https://ldb-phinf.pstatic.net/20260427_237/17772760023904CnT6_JPEG/4.jpg",
+      "https://ldb-phinf.pstatic.net/20260427_263/17772760023481X0Sx_JPEG/5.jpg"
+    ],
+    "category": {
+      "category": "샌드위치",
+      "categoryCodeList": [
+        "220036",
+        "220044",
+        "220137",
+        "220994"
+      ]
+    }
+  },
+  "안국약방": {
+    "sid": "2032236605",
+    "name": "안국약방",
+    "lat": 37.5773871,
+    "lng": 126.9861688,
+    "address": "首尔特别市 钟路区 斋洞 91",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20260208_210/1770558227854yJAni_PNG/KakaoTalk_20260208_201358100_01.png",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20260208_210/1770558227854yJAni_PNG/KakaoTalk_20260208_201358100_01.png",
+      "https://ldb-phinf.pstatic.net/20260208_15/1770558227989pVGcY_PNG/KakaoTalk_20260208_201358100.png",
+      "https://ldb-phinf.pstatic.net/20260208_104/1770558227964OzCPs_PNG/KakaoTalk_20260208_203936248.png"
+    ],
+    "category": {
+      "category": "한식",
+      "categoryCodeList": [
+        "220036",
+        "220037",
+        "220053"
+      ]
+    }
+  },
+  "연남타코 연남본점": {
+    "sid": "1290530498",
+    "name": "연남타코 연남본점",
+    "lat": 37.5651958,
+    "lng": 126.9233043,
+    "address": "首尔特别市 麻浦区 延南洞 240-16",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20240923_17/1727060566576cflU1_JPEG/IMG_9018.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20240923_17/1727060566576cflU1_JPEG/IMG_9018.jpg",
+      "https://ldb-phinf.pstatic.net/20240923_164/1727060566650AHKHR_JPEG/IMG_9031.jpg",
+      "https://ldb-phinf.pstatic.net/20240923_195/17270605665477WGal_JPEG/IMG_9048.jpg",
+      "https://ldb-phinf.pstatic.net/20240923_227/1727060566658XBcmR_JPEG/IMG_9051.jpg"
+    ],
+    "category": {
+      "category": "멕시코,남미음식",
+      "categoryCodeList": [
+        "220036",
+        "220044",
+        "220132",
+        "220930"
+      ]
+    }
+  },
+  "카페 레이어드 연남점": {
+    "sid": "1500504643",
+    "name": "카페 레이어드 연남점",
+    "lat": 37.5649954,
+    "lng": 126.9242086,
+    "address": "首尔特别市 麻浦区 延南洞 223-20",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20240618_134/1718671159145WEfro_JPEG/KakaoTalk_Photo_2024-06-18-09-30-50_012.jpeg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20240618_134/1718671159145WEfro_JPEG/KakaoTalk_Photo_2024-06-18-09-30-50_012.jpeg",
+      "https://ldb-phinf.pstatic.net/20240618_229/1718671154269kCtTN_JPEG/KakaoTalk_Photo_2024-06-18-09-30-50_013.jpeg",
+      "https://ldb-phinf.pstatic.net/20240618_283/1718671151532Gng0j_JPEG/KakaoTalk_Photo_2024-06-18-09-30-50_014.jpeg",
+      "https://ldb-phinf.pstatic.net/20240618_131/1718671147372uniVk_JPEG/KakaoTalk_Photo_2024-06-18-09-30-50_015.jpeg"
+    ],
+    "category": {
+      "category": "카페,디저트",
+      "categoryCodeList": [
+        "220036",
+        "220052",
+        "220563"
+      ]
+    }
+  },
+  "카페 레이어드 안국점": {
+    "sid": "731605639",
+    "name": "카페 레이어드 안국점",
+    "lat": 37.5777401,
+    "lng": 126.9859679,
+    "address": "首尔特别市 钟路区 斋洞 84-14",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20240618_2/1718671193596DkwP8_JPEG/KakaoTalk_Photo_2024-06-18-09-30-48_002.jpeg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20240618_2/1718671193596DkwP8_JPEG/KakaoTalk_Photo_2024-06-18-09-30-48_002.jpeg",
+      "https://ldb-phinf.pstatic.net/20240618_246/1718671190633vhaa6_JPEG/KakaoTalk_Photo_2024-06-18-09-30-48_003.jpeg",
+      "https://ldb-phinf.pstatic.net/20240619_133/1718756808127UD6s8_JPEG/KakaoTalk_20240618_090500077_04.jpg",
+      "https://ldb-phinf.pstatic.net/20240816_294/17237867711590JfAu_JPEG/KakaoTalk_20240816_133730752.jpg"
+    ],
+    "category": {
+      "category": "카페,디저트",
+      "categoryCodeList": [
+        "220036",
+        "220052",
+        "220563"
+      ]
+    }
+  },
+  "패션5": {
+    "sid": "12851539",
+    "name": "패션5",
+    "lat": 37.5386535,
+    "lng": 127.001938,
+    "address": "首尔特别市 龙山区 汉南洞 729-74",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20260721_76/17846196169001yyq3_JPEG/0721_%C7%C7%C4%A1_%C5%A9%B7%B9%C6%E4%2C_%C6%C4%B8%A3%C6%E4%282%C1%BE%29_860-797_%BC%AD%BA%F1%BD%BA%BC%D2%B0%B3.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20260721_76/17846196169001yyq3_JPEG/0721_%C7%C7%C4%A1_%C5%A9%B7%B9%C6%E4%2C_%C6%C4%B8%A3%C6%E4%282%C1%BE%29_860-797_%BC%AD%BA%F1%BD%BA%BC%D2%B0%B3.jpg",
+      "https://ldb-phinf.pstatic.net/20260422_32/17768206311435Nfhw_JPEG/0415_%B7%B9%B8%F3%BA%B8%BF%EC_%C6%C4%B8%A3%C6%E4%2C_%C5%A9%B7%B9%C6%E4%282%C1%BE%29_1080-1350_%C7%C7%B5%E5.jpg",
+      "https://ldb-phinf.pstatic.net/20230726_31/1690340251010MyB6d_JPEG/KakaoTalk_20230719_151703169_03.jpg"
+    ],
+    "category": {
+      "category": "베이커리",
+      "categoryCodeList": [
+        "220036",
+        "220052",
+        "220564",
+        "221161"
+      ]
+    }
+  },
+  "포도빵집": {
+    "sid": "1813154034",
+    "name": "포도빵집",
+    "lat": 37.5484132,
+    "lng": 127.0429522,
+    "address": "首尔特别市 城东区 圣水洞一街 685-293",
+    "memo": null,
+    "img": "https://naverbooking-phinf.pstatic.net/20260705_197/17831846920188IGcz_PNG/image.png",
+    "photos": [
+      "https://naverbooking-phinf.pstatic.net/20260705_197/17831846920188IGcz_PNG/image.png",
+      "https://naverbooking-phinf.pstatic.net/20260705_57/1783184895568UJW9F_JPEG/image.jpg",
+      "https://naverbooking-phinf.pstatic.net/20260705_249/1783184899159395AL_JPEG/image.jpg",
+      "https://ldb-phinf.pstatic.net/20240111_47/1704944772526cbvO0_PNG/%C6%F7%B5%B5%BB%A7-%C4%BF%C6%C3.png"
+    ],
+    "category": {
+      "category": "베이커리",
+      "categoryCodeList": [
+        "220036",
+        "220052",
+        "220564",
+        "221161"
+      ]
+    }
+  },
+  "아티스트베이커리 안국": {
+    "sid": "1741938125",
+    "name": "아티스트베이커리 안국",
+    "lat": 37.5762555,
+    "lng": 126.9843435,
+    "address": "首尔特别市 钟路区 安国洞 164",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20240104_111/1704334093308gYq5m_PNG/%BE%C6%C6%BC%BD%BA%C6%AE%BA%A3%C0%CC%C4%BF%B8%AE_%B7%CE%B0%ED2.png",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20240104_111/1704334093308gYq5m_PNG/%BE%C6%C6%BC%BD%BA%C6%AE%BA%A3%C0%CC%C4%BF%B8%AE_%B7%CE%B0%ED2.png",
+      "https://ldb-phinf.pstatic.net/20231207_208/1701952490660HQHWh_JPEG/KakaoTalk_20231207_212804793_01.jpg",
+      "https://ldb-phinf.pstatic.net/20231207_212/17019524907092jQHC_JPEG/KakaoTalk_20231207_212804793_02.jpg",
+      "https://ldb-phinf.pstatic.net/20231207_27/1701952490491n0Ckj_JPEG/KakaoTalk_20231207_212804793_03.jpg"
+    ],
+    "category": {
+      "category": "베이커리",
+      "categoryCodeList": [
+        "220036",
+        "220052",
+        "220564",
+        "221161"
+      ]
+    }
+  },
+  "성심당": {
+    "sid": "1261680554",
+    "name": "성심당",
+    "lat": 37.6014114,
+    "lng": 126.9322818,
+    "address": "首尔特别市 恩平区 碌磻洞 234",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20210201_9/1612166229235xNdlE_JPEG/GPvXCzzkcyKzZepfEHtWmgfo.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20210201_9/1612166229235xNdlE_JPEG/GPvXCzzkcyKzZepfEHtWmgfo.jpg"
+    ],
+    "category": {
+      "category": "열쇠,도장",
+      "categoryCodeList": [
+        "223267",
+        "1003289",
+        "223285"
+      ]
+    }
+  },
+  "타르틴베이커리 이태원점": {
+    "sid": "1548209854",
+    "name": "타르틴베이커리 이태원점",
+    "lat": 37.5346242,
+    "lng": 126.9978104,
+    "address": "首尔特别市 龙山区 汉南洞 736-9",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20260114_116/1768379435811NWtQO_JPEG/%B9%AB%C1%A6-1.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20260114_116/1768379435811NWtQO_JPEG/%B9%AB%C1%A6-1.jpg",
+      "https://ldb-phinf.pstatic.net/20250113_60/1736753290316cMhXW_JPEG/%B0%A1%B7%CE2.jpeg",
+      "https://ldb-phinf.pstatic.net/20250113_62/17367532903387pjNJ_JPEG/%B0%A1%B7%CE7.jpeg",
+      "https://ldb-phinf.pstatic.net/20250113_209/1736753290375wdcJF_JPEG/%B0%A1%B7%CE6.jpeg"
+    ],
+    "category": {
+      "category": "베이커리",
+      "categoryCodeList": [
+        "220036",
+        "220052",
+        "220564",
+        "1005434"
+      ]
+    }
+  },
+  "숯불닭갈비 계자람 성수본점": {
+    "sid": "1803632854",
+    "name": "숯불닭갈비 계자람 성수본점",
+    "lat": 37.5377649,
+    "lng": 127.0552149,
+    "address": "首尔特别市 城东区 圣水洞二街 565-18",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20231127_251/1701070392026Vq7N2_JPEG/KakaoTalk_20231127_163253310.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20231127_251/1701070392026Vq7N2_JPEG/KakaoTalk_20231127_163253310.jpg",
+      "https://ldb-phinf.pstatic.net/20231125_133/1700897372901KAd5M_JPEG/KakaoTalk_20231125_161838257.jpg",
+      "https://ldb-phinf.pstatic.net/20231125_176/1700897373305At82c_JPEG/KakaoTalk_20231125_161838257_01.jpg",
+      "https://ldb-phinf.pstatic.net/20231125_227/1700897372898W1O4d_JPEG/KakaoTalk_20231125_161838257_02.jpg"
+    ],
+    "category": {
+      "category": "닭요리",
+      "categoryCodeList": [
+        "220036",
+        "220037",
+        "220075",
+        "220770",
+        "221569"
+      ]
+    }
+  },
+  "진청유점": {
+    "sid": "1532395497",
+    "name": "진청유점",
+    "lat": 37.5622612,
+    "lng": 126.9263097,
+    "address": "首尔特别市 麻浦区 延南洞 385-3",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20250224_245/1740390120501Psx6C_JPEG/1J3A4694.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20250224_245/1740390120501Psx6C_JPEG/1J3A4694.jpg",
+      "https://ldb-phinf.pstatic.net/20250224_82/1740389660724nRh1z_JPEG/KakaoTalk_20250221_141011275_11.jpg",
+      "https://ldb-phinf.pstatic.net/20250224_202/1740389661738WcIO5_JPEG/KakaoTalk_20250221_141011275_01.jpg",
+      "https://ldb-phinf.pstatic.net/20250224_131/1740389661043QbpNw_JPEG/KakaoTalk_20250221_141011275_15.jpg"
+    ],
+    "category": {
+      "category": "한식",
+      "categoryCodeList": [
+        "220036",
+        "220037",
+        "220053"
+      ]
+    }
+  },
+  "할매집": {
+    "sid": "19489992",
+    "name": "할매집",
+    "lat": 37.5756601,
+    "lng": 126.9714754,
+    "address": "首尔特别市 钟路区 内资洞 108",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20220825_206/1661416460729UCqPC_JPEG/20220823_172634.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20220825_206/1661416460729UCqPC_JPEG/20220823_172634.jpg"
+    ],
+    "category": {
+      "category": "한식",
+      "categoryCodeList": [
+        "220036",
+        "220037",
+        "220053"
+      ]
+    }
+  },
+  "오뗄드꾸뜨": {
+    "sid": "1577648959",
+    "name": "오뗄드꾸뜨",
+    "lat": 37.5627102,
+    "lng": 126.9253227,
+    "address": "首尔特别市 麻浦区 延南洞 387-19",
+    "memo": null,
+    "img": "https://naverbooking-phinf.pstatic.net/20231221_300/1703158747385H8Og3_JPEG/image.jpg",
+    "photos": [
+      "https://naverbooking-phinf.pstatic.net/20231221_300/1703158747385H8Og3_JPEG/image.jpg",
+      "https://ldb-phinf.pstatic.net/20230202_102/1675329444354b89xa_JPEG/1675268967611.jpg",
+      "https://ldb-phinf.pstatic.net/20231221_69/1703164177996HQgsc_JPEG/1000002355.jpg",
+      "https://naverbooking-phinf.pstatic.net/20231221_117/1703158724711IQvVz_JPEG/image.jpg"
+    ],
+    "category": {
+      "category": "양식",
+      "categoryCodeList": [
+        "220036",
+        "220044",
+        "220126"
+      ]
+    }
+  },
+  "연주방 어페어": {
+    "sid": "1623995485",
+    "name": "연주방 어페어",
+    "lat": 37.5623906,
+    "lng": 126.9256371,
+    "address": "首尔特别市 麻浦区 延南洞 387-39",
+    "memo": "封面牛肉好吃",
+    "img": "https://naverbooking-phinf.pstatic.net/20260119_221/1768821441340JlNib_JPEG/KakaoTalk_20260119_160503572_06.jpg",
+    "photos": [
+      "https://naverbooking-phinf.pstatic.net/20260119_221/1768821441340JlNib_JPEG/KakaoTalk_20260119_160503572_06.jpg",
+      "https://ldb-phinf.pstatic.net/20260815_8/1786789734820ajRJ0_JPEG/KakaoTalk_20260815_175928698.jpg",
+      "https://ldb-phinf.pstatic.net/20260117_270/1768635866951WUXT2_JPEG/KakaoTalk_20250901_202326623_01.jpg",
+      "https://ldb-phinf.pstatic.net/20260719_108/1784449298073IU8hd_JPEG/KakaoTalk_20260719_171911604_02.jpg"
+    ],
+    "category": {
+      "category": "양식",
+      "categoryCodeList": [
+        "220036",
+        "220044",
+        "220126"
+      ]
+    }
+  },
+  "버티샌드위치하우스": {
+    "sid": "1362597719",
+    "name": "버티샌드위치하우스",
+    "lat": 37.5407545,
+    "lng": 127.0602197,
+    "address": "Seoul Seongdong-gu 2(i)-ga 272-13",
+    "memo": "黑松露三明治很好吃",
+    "img": "https://ldb-phinf.pstatic.net/20260530_221/1780143009405KqCD1_JPEG/IMG_1668.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20260530_221/1780143009405KqCD1_JPEG/IMG_1668.jpg",
+      "https://ldb-phinf.pstatic.net/20250428_85/1745806557046yD7lB_JPEG/IMG_3626.jpeg",
+      "https://ldb-phinf.pstatic.net/20260530_248/17801430094065KIlz_JPEG/IMG_2733.jpg",
+      "https://ldb-phinf.pstatic.net/20250501_274/1746095570627yjNSv_JPEG/KakaoTalk_20250428_125050779_03.jpg"
+    ],
+    "category": {
+      "category": "샌드위치",
+      "categoryCodeList": [
+        "220036",
+        "220044",
+        "220137",
+        "220994"
+      ]
+    }
+  },
+  "맘스터치 종각역점": {
+    "sid": "570774588",
+    "name": "맘스터치 종각역점",
+    "lat": 37.5699468,
+    "lng": 126.9843665,
+    "address": "首尔特别市 钟路区 锺路二街 102-1",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20230829_137/1693282401170BAq7o_PNG/%B7%CE%B0%ED_%C1%A4%B9%E6%C7%FC.png",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20230829_137/1693282401170BAq7o_PNG/%B7%CE%B0%ED_%C1%A4%B9%E6%C7%FC.png"
+    ],
+    "category": {
+      "category": "맘스터치-일반",
+      "categoryCodeList": [
+        "220036",
+        "220044",
+        "1006803",
+        "220341"
+      ]
+    }
+  },
+  "홍대족발": {
+    "sid": "555809213",
+    "name": "홍대족발",
+    "lat": 37.5531496,
+    "lng": 126.9205063,
+    "address": "首尔特别市 麻浦区 西桥洞 370-2",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20250812_166/1754985935190Q5rAQ_JPEG/%BC%BC%B0%A1%C1%F6%B8%C0_%C7%D1%BB%F3.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20250812_166/1754985935190Q5rAQ_JPEG/%BC%BC%B0%A1%C1%F6%B8%C0_%C7%D1%BB%F3.jpg",
+      "https://ldb-phinf.pstatic.net/20250418_175/1744968816126YUd8z_JPEG/%C8%AB%B4%EB%C1%B7%B9%DF.jpg",
+      "https://ldb-phinf.pstatic.net/20250812_198/17549859467917mkN4_JPEG/KakaoTalk_20250812_165624173.jpg",
+      "https://ldb-phinf.pstatic.net/20241024_111/1729760304693kT9g6_JPEG/KakaoTalk_20241024_174131587_01.jpg"
+    ],
+    "category": {
+      "category": "족발,보쌈",
+      "categoryCodeList": [
+        "220036",
+        "220037",
+        "220075",
+        "220766",
+        "221504"
+      ]
+    }
+  },
+  "왕비집 명동중앙점": {
+    "sid": "21419115",
+    "name": "왕비집 명동중앙점",
+    "lat": 37.5611072,
+    "lng": 126.9823879,
+    "address": "首尔特别市 中区 忠武路一街 25-6",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20250722_205/17531532736958vPXh_JPEG/3ho-meat.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20250722_205/17531532736958vPXh_JPEG/3ho-meat.jpg",
+      "https://ldb-phinf.pstatic.net/20250722_109/1753153273765R286K_JPEG/3ho-allan.jpg",
+      "https://ldb-phinf.pstatic.net/20250722_281/1753153273909BkzKY_PNG/3ho-meat.png",
+      "https://ldb-phinf.pstatic.net/20250722_204/1753153273902xkWkW_PNG/3ho-staff.png"
+    ],
+    "category": {
+      "category": "육류,고기요리",
+      "categoryCodeList": [
+        "220036",
+        "220037",
+        "220075",
+        "220754"
+      ]
+    }
+  },
+  "강남면옥 명동점": {
+    "sid": "35489787",
+    "name": "강남면옥 명동점",
+    "lat": 37.5642182,
+    "lng": 126.9845039,
+    "address": "首尔特别市 中区 明洞一街 48-2",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20151201_175/1448957618794qJjsB_JPEG/167151574356414_1.jpeg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20151201_175/1448957618794qJjsB_JPEG/167151574356414_1.jpeg",
+      "https://ldb-phinf.pstatic.net/20150831_256/1441004401792gyHte_JPEG/SUBMIT_1426557645390_35489787.jpg",
+      "https://ldb-phinf.pstatic.net/20150831_252/1441004402259bCztg_JPEG/SUBMIT_1426557658381_35489787.jpg",
+      "https://ldb-phinf.pstatic.net/20150831_25/144100440247172sK0_JPEG/SUBMIT_1426557664342_35489787.jpg"
+    ],
+    "category": {
+      "category": "냉면",
+      "categoryCodeList": [
+        "220036",
+        "220037",
+        "220063",
+        "1000410"
+      ]
+    }
+  },
+  "코코리코": {
+    "sid": "1727400952",
+    "name": "코코리코",
+    "lat": 37.5623228,
+    "lng": 126.9240918,
+    "address": "Seoul Mapo-gu Yeonnam-dong 255-21",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20230912_19/1694501022431804tk_JPEG/IMG_1706.jpeg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20230912_19/1694501022431804tk_JPEG/IMG_1706.jpeg",
+      "https://ldb-phinf.pstatic.net/20230113_162/1673600395047nJaiW_JPEG/0DD4B3C9-4341-4AF5-9E82-C8DD0BFAB7BB.jpeg",
+      "https://ldb-phinf.pstatic.net/20230912_162/1694501019202UEH5Y_JPEG/A7C4F29D-F0CB-479C-A5B0-29C9F53BF790.jpeg",
+      "https://ldb-phinf.pstatic.net/20230912_84/1694501019410SOVcV_JPEG/SAM_0484.jpeg"
+    ],
+    "category": {
+      "category": "베이커리",
+      "categoryCodeList": [
+        "220036",
+        "220052",
+        "220564",
+        "221161"
+      ]
+    }
+  },
+  "수더분": {
+    "sid": "1411194664",
+    "name": "수더분",
+    "lat": 37.5454187,
+    "lng": 126.9467534,
+    "address": "Seoul Mapo-gu Gongdeok-dong 476",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20200419_207/1587280378927TOLom_JPEG/gLI16IXCeDqEcphBdaU_DTON.jpeg.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20200419_207/1587280378927TOLom_JPEG/gLI16IXCeDqEcphBdaU_DTON.jpeg.jpg",
+      "https://ldb-phinf.pstatic.net/20221201_257/1669832441230rwDPD_JPEG/20221130_115111.jpg",
+      "https://ldb-phinf.pstatic.net/20260812_214/1786514789147cJJSE_JPEG/IMG_5920.jpg",
+      "https://ldb-phinf.pstatic.net/20260812_143/1786514789168jJAde_JPEG/IMG_5921.jpg"
+    ],
+    "category": {
+      "category": "베이커리",
+      "categoryCodeList": [
+        "220036",
+        "220052",
+        "220564",
+        "221161"
+      ]
+    }
+  },
+  "옵스 롯데소공점": {
+    "sid": "37435253",
+    "name": "옵스 롯데소공점",
+    "lat": 37.5649944,
+    "lng": 126.9816422,
+    "address": "Seoul Jung-gu Sogong-dong 1",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20160112_143/145257912368808JED_JPEG/176062554223550_0.jpeg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20160112_143/145257912368808JED_JPEG/176062554223550_0.jpeg",
+      "https://ldb-phinf.pstatic.net/20160112_272/1452579123843gNVHx_JPEG/176062554223550_1.jpeg",
+      "https://ldb-phinf.pstatic.net/20160112_250/1452579124018r9cLU_JPEG/176062554223550_2.jpeg",
+      "https://ldb-phinf.pstatic.net/20160112_224/1452579124098abn6G_JPEG/176062554223550_3.jpeg"
+    ],
+    "category": {
+      "category": "베이커리",
+      "categoryCodeList": [
+        "220036",
+        "220052",
+        "220564",
+        "231356"
+      ]
+    }
+  },
+  "투아투아": {
+    "sid": "1175794841",
+    "name": "투아투아",
+    "lat": 37.5263765,
+    "lng": 127.0368149,
+    "address": "Seoul Gangnam-gu Sinsa-dong 642-15",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20230920_245/1695214725773h5WCQ_JPEG/IMG_8734.jpeg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20230920_245/1695214725773h5WCQ_JPEG/IMG_8734.jpeg"
+    ],
+    "category": {
+      "category": "베이커리",
+      "categoryCodeList": [
+        "220036",
+        "220052",
+        "220564",
+        "221161"
+      ]
+    }
+  },
+  "빌리프커피로스터스": {
+    "sid": "36544206",
+    "name": "빌리프커피로스터스",
+    "lat": 37.5523005,
+    "lng": 126.9140322,
+    "address": "Seoul Mapo-gu Seogyo-dong 384-3",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20190130_290/15488393819667tSE3_JPEG/MgirAhwORH74Dopn8nHBuMea.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20190130_290/15488393819667tSE3_JPEG/MgirAhwORH74Dopn8nHBuMea.jpg",
+      "https://ldb-phinf.pstatic.net/20190130_22/1548839399831KzI4a_JPEG/_cXo6Rl2-wNZxjSVBBaqXB9M.jpg",
+      "https://ldb-phinf.pstatic.net/20190130_156/1548839419449BiMmR_JPEG/w_Xxd_hOBziorliS7HXZkkyh.jpg",
+      "https://ldb-phinf.pstatic.net/20200325_220/1585065618117jO6CD_JPEG/V7kqFERgr_1Y-Z8KTh6bhNOd.jpeg.jpg"
+    ],
+    "category": {
+      "category": "카페,디저트",
+      "categoryCodeList": [
+        "220036",
+        "220052",
+        "220563"
+      ]
+    }
+  },
+  "만동제과 연남점": {
+    "sid": "1038526987",
+    "name": "만동제과 연남점",
+    "lat": 37.561526,
+    "lng": 126.9272585,
+    "address": "Seoul Seodaemun-gu Changcheon-dong 448",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20250721_246/175307958495435HvA_JPEG/rr.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20250721_246/175307958495435HvA_JPEG/rr.jpg",
+      "https://ldb-phinf.pstatic.net/20221031_161/166716854433241cwJ_JPEG/KakaoTalk_20221013_142801149_13.jpg",
+      "https://ldb-phinf.pstatic.net/20221122_5/1669090329283Kua32_JPEG/%C8%AB%B4%EB%BB%A7%C1%FD_%2836%29.jpg",
+      "https://ldb-phinf.pstatic.net/20221122_96/1669090329472IvjuN_JPEG/%C8%AB%B4%EB%BB%A7%C1%FD_%2846%29.jpg"
+    ],
+    "category": {
+      "category": "베이커리",
+      "categoryCodeList": [
+        "220036",
+        "220052",
+        "220564",
+        "221161"
+      ]
+    }
+  },
+  "샐러드셀러": {
+    "sid": "37049538",
+    "name": "샐러드셀러",
+    "lat": 37.5328308,
+    "lng": 126.9924926,
+    "address": "Seoul Yongsan-gu Itaewon-dong 74-61",
+    "memo": null,
+    "img": "https://naverbooking-phinf.pstatic.net/20250505_175/1746446963237N9l9w_JPEG/L1030199_copy_edit.jpg",
+    "photos": [
+      "https://naverbooking-phinf.pstatic.net/20250505_175/1746446963237N9l9w_JPEG/L1030199_copy_edit.jpg",
+      "https://naverbooking-phinf.pstatic.net/20250505_215/1746448783859DcOSl_JPEG/L1022555_copy_edit.jpg",
+      "https://naverbooking-phinf.pstatic.net/20250505_35/174644874411866bvt_JPEG/L1022429_copy_edit.jpg",
+      "https://naverbooking-phinf.pstatic.net/20250505_54/1746446964681FMrM5_JPEG/L1022314_copy_edit.jpg"
+    ],
+    "category": {
+      "category": "다이어트,샐러드",
+      "categoryCodeList": [
+        "220036",
+        "220047",
+        "220170",
+        "230734"
+      ]
+    }
+  },
+  "갓잇 한남점": {
+    "sid": "1266849655",
+    "name": "갓잇 한남점",
+    "lat": 37.5333815,
+    "lng": 127.0032069,
+    "address": "Seoul Yongsan-gu Hannam-dong 653-6",
+    "memo": "",
+    "img": "https://ldb-phinf.pstatic.net/20260721_48/1784596556977shKa3_JPEG/KakaoTalk_20260719_191614002_01.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20260721_48/1784596556977shKa3_JPEG/KakaoTalk_20260719_191614002_01.jpg",
+      "https://ldb-phinf.pstatic.net/20240618_239/1718673724984ncbV9_JPEG/%BE%F7%C3%BC%BB%E7%C1%F81.jpg",
+      "https://ldb-phinf.pstatic.net/20240618_203/1718673725209L4F5e_JPEG/%BE%F7%C3%BC%BB%E7%C1%F82.jpg",
+      "https://ldb-phinf.pstatic.net/20240618_131/1718673725109oQS5E_JPEG/%BE%F7%C3%BC%BB%E7%C1%F83.jpg"
+    ],
+    "category": {
+      "category": "멕시코,남미음식",
+      "categoryCodeList": [
+        "220036",
+        "220044",
+        "220132",
+        "1004547"
+      ]
+    }
+  },
+  "키에리": {
+    "sid": "37848376",
+    "name": "키에리",
+    "lat": 37.5333702,
+    "lng": 126.9931885,
+    "address": "Seoul Yongsan-gu Itaewon-dong 73-7",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20250328_268/1743167030849J0szv_JPEG/1000007916.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20250328_268/1743167030849J0szv_JPEG/1000007916.jpg",
+      "https://ldb-phinf.pstatic.net/20250328_211/1743167018399dlprM_JPEG/1000007984.jpg",
+      "https://ldb-phinf.pstatic.net/20250328_133/1743166999037OzS5l_JPEG/1000008012.jpg",
+      "https://ldb-phinf.pstatic.net/20250121_132/1737464152702CJAg9_JPEG/1000005885.jpg"
+    ],
+    "category": {
+      "category": "케이크전문",
+      "categoryCodeList": [
+        "220036",
+        "220052",
+        "220565",
+        "221177"
+      ]
+    }
+  },
+  "어글리베이커리": {
+    "sid": "1348768821",
+    "name": "어글리베이커리",
+    "lat": 37.5550335,
+    "lng": 126.9060383,
+    "address": "Seoul Mapo-gu Mangwon-dong 400-1",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20200811_57/1597153851912zTUxD_JPEG/7kjSXijOz1qdZJ-rGEJW__vY.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20200811_57/1597153851912zTUxD_JPEG/7kjSXijOz1qdZJ-rGEJW__vY.jpg",
+      "https://ldb-phinf.pstatic.net/20200811_192/1597153893073gvKwl_JPEG/Blr5RVBl8xsLuu6_5gxay2Jl.jpg",
+      "https://ldb-phinf.pstatic.net/20200811_241/15971537676898NTA6_JPEG/M-9HlBP_MJxn2BqN5W6jUw58.jpg",
+      "https://ldb-phinf.pstatic.net/20200811_244/1597153833415O6P9S_JPEG/XUeUoLeEeIfHHb0OsLD2g0g9.jpg"
+    ],
+    "category": {
+      "category": "베이커리",
+      "categoryCodeList": [
+        "220036",
+        "220052",
+        "220564",
+        "221161"
+      ]
+    }
+  },
+  "연희보리밥": {
+    "sid": "1147126296",
+    "name": "연희보리밥",
+    "lat": 37.567959,
+    "lng": 126.9306323,
+    "address": "Seoul Seodaemun-gu Yeonhui-dong 132-51",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20240916_31/17264479656444Y5dS_PNG/%BE%EE%BC%AD%BF%CD_%C7%D1%B1%B9%C0%BA_%C3%B3%C0%BD%C0%CC%C1%F6.E331.240912.1080p.WANNA.mp4_003498929.png",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20240916_31/17264479656444Y5dS_PNG/%BE%EE%BC%AD%BF%CD_%C7%D1%B1%B9%C0%BA_%C3%B3%C0%BD%C0%CC%C1%F6.E331.240912.1080p.WANNA.mp4_003498929.png",
+      "https://ldb-phinf.pstatic.net/20240916_13/1726447988332pjWVT_PNG/%BE%EE%BC%AD%BF%CD_%C7%D1%B1%B9%C0%BA_%C3%B3%C0%BD%C0%CC%C1%F6.E331.240912.1080p.WANNA.mp4_004049812.png",
+      "https://ldb-phinf.pstatic.net/20240908_96/1725779116974jtdv0_JPEG/%BD%C4%BB%E7%BF%B9%BD%C3.jpg",
+      "https://ldb-phinf.pstatic.net/20240908_161/1725779116794KX0XL_JPEG/%BB%F3%C2%F7%B8%B2.jpg"
+    ],
+    "category": {
+      "category": "한식",
+      "categoryCodeList": [
+        "220036",
+        "220037",
+        "220053"
+      ]
+    }
+  },
+  "땡스오트 연남": {
+    "sid": "1435646824",
+    "name": "땡스오트 연남",
+    "lat": 37.5662125,
+    "lng": 126.9198923,
+    "address": "Seoul Mapo-gu Yeonnam-dong 375-113",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20250509_33/1746757859795WsA97_JPEG/IMG_0821.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20250509_33/1746757859795WsA97_JPEG/IMG_0821.jpg",
+      "https://ldb-phinf.pstatic.net/20250509_67/17467578577003t9ks_JPEG/IMG_0814.JPG",
+      "https://ldb-phinf.pstatic.net/20250509_34/17467578599021uOnJ_JPEG/IMG_0826.jpg",
+      "https://ldb-phinf.pstatic.net/20211124_199/1637748720890cBqLS_PNG/%BD%BA%C5%A9%B8%B0%BC%A6_2021-11-24_%BF%C0%C8%C4_6.52.04.png"
+    ],
+    "category": {
+      "category": "카페,디저트",
+      "categoryCodeList": [
+        "220036",
+        "220052",
+        "220563"
+      ]
+    }
+  },
+  "그레인서울": {
+    "sid": "1413655852",
+    "name": "그레인서울",
+    "lat": 37.5662742,
+    "lng": 126.9274575,
+    "address": "Seoul Seodaemun-gu Yeonhui-dong 192-29",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20230913_246/16945865275501Pm6q_JPEG/IMG_7873.jpeg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20230913_246/16945865275501Pm6q_JPEG/IMG_7873.jpeg",
+      "https://ldb-phinf.pstatic.net/20231023_119/1698072828712b7pPU_JPEG/IMG_8412.jpeg",
+      "https://ldb-phinf.pstatic.net/20230913_153/1694587317096UyaIH_JPEG/IMG_6975.jpeg",
+      "https://ldb-phinf.pstatic.net/20230913_83/1694588302341FpADn_JPEG/IMG_8334.jpeg"
+    ],
+    "category": {
+      "category": "브런치",
+      "categoryCodeList": [
+        "220036",
+        "220044",
+        "220133",
+        "220932"
+      ]
+    }
+  },
+  "영동 감자탕": {
+    "sid": "18372532",
+    "name": "영동 감자탕",
+    "lat": 37.5570062,
+    "lng": 126.917877,
+    "address": "Seoul Mapo-gu Seogyo-dong 448-2",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20200418_172/1587213777774qNxiu_JPEG/y5a3trb462U1yXltLJZmoIxv.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20200418_172/1587213777774qNxiu_JPEG/y5a3trb462U1yXltLJZmoIxv.jpg",
+      "https://ldb-phinf.pstatic.net/20200606_111/1591412428644D5Du6_JPEG/c5Z9Ur6lDAwpIU7C3qMkeRan.jpg"
+    ],
+    "category": {
+      "category": "감자탕",
+      "categoryCodeList": [
+        "220036",
+        "220037",
+        "220067",
+        "220681"
+      ]
+    }
+  },
+  "콘부": {
+    "sid": "1159809835",
+    "name": "콘부",
+    "lat": 37.5650851,
+    "lng": 126.9903413,
+    "address": "Seoul Jung-gu 2(i)-ga 7-6",
+    "memo": null,
+    "img": "https://ldb-phinf.pstatic.net/20260718_124/1784385967275R7hps_JPEG/IMG_1993.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20260718_124/1784385967275R7hps_JPEG/IMG_1993.jpg",
+      "https://ldb-phinf.pstatic.net/20260718_264/17843859669172vO0R_JPEG/IMG_1998.jpg",
+      "https://ldb-phinf.pstatic.net/20260819_119/1787130917213MvkhB_JPEG/%C3%DD%C4%AA%B5%F0%C0%DA%C0%CE.jpg",
+      "https://ldb-phinf.pstatic.net/20260528_118/17799370840420VbSX_JPEG/IMG_6209.jpg"
+    ],
+    "category": {
+      "category": "이자카야",
+      "categoryCodeList": [
+        "220036",
+        "220051",
+        "220556",
+        "221121"
+      ]
+    }
+  },
+  "서울숲클라이밍 종로점": {
+    "sid": "1004993421",
+    "name": "서울숲클라이밍 종로점",
+    "lat": 37.5696081,
+    "lng": 126.9898701,
+    "address": "Seoul Jongno-gu Gwansu-dong 20",
+    "memo": "攀岩",
+    "img": "https://ldb-phinf.pstatic.net/20240127_217/1706323086285X8NHz_PNG/%C1%BE%B7%CE%BD%A3%B7%CE%B0%ED_%C8%F2%BB%F6%B9%E8%B0%E6.png",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20240127_217/1706323086285X8NHz_PNG/%C1%BE%B7%CE%BD%A3%B7%CE%B0%ED_%C8%F2%BB%F6%B9%E8%B0%E6.png",
+      "https://ldb-phinf.pstatic.net/20240517_3/1715923904050T4MoN_JPEG/KakaoTalk_20240517_143106573.jpg",
+      "https://ldb-phinf.pstatic.net/20240517_261/1715923904101lx50s_JPEG/KakaoTalk_20240517_143106573_01.jpg"
+    ],
+    "category": {
+      "category": "암벽등반",
+      "categoryCodeList": [
+        "221986",
+        "221988",
+        "222037"
+      ]
+    }
+  },
+  "PEAKERS 클라이밍 종로": {
+    "sid": "1728695677",
+    "name": "PEAKERS 클라이밍 종로",
+    "lat": 37.5709092,
+    "lng": 126.9913988,
+    "address": "Seoul Jongno-gu Donui-dong 137",
+    "memo": "",
+    "img": "https://ldb-phinf.pstatic.net/20220107_161/1641527724261UnAmA_JPEG/1641527716061.jpg",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20220107_161/1641527724261UnAmA_JPEG/1641527716061.jpg",
+      "https://ldb-phinf.pstatic.net/20220107_187/1641527891263A15FD_JPEG/1641527854639.jpg",
+      "https://ldb-phinf.pstatic.net/20220107_245/1641527891288CwczH_JPEG/1641527845825.jpg",
+      "https://ldb-phinf.pstatic.net/20220107_267/1641527882155OxvLi_JPEG/1641527858105.jpg"
+    ],
+    "category": {
+      "category": "실내체육관",
+      "categoryCodeList": [
+        "221986",
+        "221987",
+        "221995",
+        "229220"
+      ]
+    }
+  },
+  "탄산 마그네슘 플리마켓": {
+    "sid": "1308567374",
+    "name": "탄산 마그네슘 플리마켓",
+    "lat": 37.5435429,
+    "lng": 127.0538652,
+    "address": "首尔特别市 城东区 圣水洞二街 316-49",
+    "memo": "爬石头才能上去的服装店",
+    "img": null,
+    "photos": [],
+    "category": {
+      "category": "패션 팝업",
+      "categoryCodeList": [
+        "1006683",
+        "1006697",
+        "1006703"
+      ]
+    }
+  },
+  "더스퀘어 호스텔": {
+    "sid": "2029433521",
+    "name": "더스퀘어 호스텔",
+    "lat": 37.5722331,
+    "lng": 126.989588,
+    "address": "Seoul Jongno-gu Nagwon-dong 132-5",
+    "memo": "",
+    "img": "https://ldb-phinf.pstatic.net/20260317_254/1773743628555nbOgD_PNG/1.png",
+    "photos": [
+      "https://ldb-phinf.pstatic.net/20260317_254/1773743628555nbOgD_PNG/1.png",
+      "https://ldb-phinf.pstatic.net/20260317_283/1773743629676rzJUe_JPEG/2.jpg",
+      "https://ldb-phinf.pstatic.net/20260321_18/1774104394402IX3YR_JPEG/3.jpg",
+      "https://ldb-phinf.pstatic.net/20260317_254/1773743629569zBvVg_JPEG/4.jpg"
+    ],
+    "category": {
+      "category": "호스텔",
+      "categoryCodeList": [
+        "221941",
+        "221953"
+      ]
+    }
+  }
+}
