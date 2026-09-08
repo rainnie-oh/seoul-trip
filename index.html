@@ -639,6 +639,99 @@ button { font-family: inherit; }
     opacity: 1;
   }
 }
+
+/* ═══════════════════════════════════════════
+   Print & Long PDF Export Stylesheet
+   ═══════════════════════════════════════════ */
+.print-only-header {
+  display: none;
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm 10mm;
+  }
+
+  /* Hide interactive / screen-only navigation elements */
+  .app-header,
+  .nav-strip-wrapper,
+  #map-container,
+  .mobile-map-toggle,
+  .mobile-map-card,
+  .btn-rausch,
+  .btn-outline,
+  .meal-actions-row,
+  .card-bottom-actions,
+  .print-btn,
+  .all-days-print-banner {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #111111 !important;
+    font-size: 11.5pt;
+    line-height: 1.4;
+  }
+
+  .main-wrapper {
+    display: block !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .feed-column {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Prevent card splitting across page boundaries */
+  .spot-card,
+  .meal-item,
+  .stat-box,
+  .print-day-header {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .spot-card {
+    box-shadow: none !important;
+    border: 1px solid #d0d0d0 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .card-media {
+    height: 150px !important;
+  }
+
+  .card-media img {
+    height: 150px !important;
+    object-fit: cover !important;
+  }
+
+  .card-title {
+    font-size: 13.5pt !important;
+  }
+
+  .print-day-header {
+    margin-top: 28px !important;
+    margin-bottom: 14px !important;
+    padding-bottom: 8px !important;
+    border-bottom: 2.5px solid #222222 !important;
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+
+  .print-only-header {
+    display: block !important;
+    margin-bottom: 18px !important;
+    border-bottom: 2px solid #222222 !important;
+    padding-bottom: 12px !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -654,31 +747,38 @@ button { font-family: inherit; }
       <div class="meta-chip">✈️ 去程 <b>9/12(六) 14:00 GMP (OZ3625)</b></div>
       <div class="meta-chip">✈️ 返程 <b>9/15(二) 20:00 ICN (OZ367)</b></div>
       <div class="meta-chip">🏨 宿 <b>钟路三街 The Square Hostel</b></div>
+      <button class="meta-chip print-btn" onclick="printFullItinerary()" title="导出或打印完整4天行程长PDF" style="background:#222222;color:#ffffff;border-color:#222222;cursor:pointer;font-weight:700;">
+        🖨️ 导出长PDF / 打印
+      </button>
     </div>
   </div>
 
   <!-- Day Navigation Strip -->
   <div class="nav-strip-wrapper">
     <div class="nav-strip" id="navStrip">
-      <button class="nav-tab active" onclick="switchDay(0)">
+      <button class="nav-tab active" data-day="0" onclick="switchDay(0)">
         <span class="tab-icon">🧭</span>
         <span>行程总览</span>
       </button>
-      <button class="nav-tab" onclick="switchDay(1)">
+      <button class="nav-tab" data-day="1" onclick="switchDay(1)">
         <span class="tab-icon">🧗</span>
         <span>D1 钟路抱石 (9/12 周六)</span>
       </button>
-      <button class="nav-tab" onclick="switchDay(2)">
+      <button class="nav-tab" data-day="2" onclick="switchDay(2)">
         <span class="tab-icon">🛍️</span>
         <span>D2 弘大·延南 (9/13 周日)</span>
       </button>
-      <button class="nav-tab" onclick="switchDay(3)">
+      <button class="nav-tab" data-day="3" onclick="switchDay(3)">
         <span class="tab-icon">🥐</span>
         <span>D3 圣水潮流 (9/14 周一)</span>
       </button>
-      <button class="nav-tab" onclick="switchDay(4)">
+      <button class="nav-tab" data-day="4" onclick="switchDay(4)">
         <span class="tab-icon">🌽</span>
-        <span>D4 韩屋伴手礼 (9/15 周二)</span>
+        <span>D4 安国·北村 (9/15 周二)</span>
+      </button>
+      <button class="nav-tab" data-day="all" onclick="switchDay('all')" style="border-color:#222222;font-weight:800;">
+        <span class="tab-icon">📑</span>
+        <span>全4天长手册 (无缝长图)</span>
       </button>
     </div>
   </div>
@@ -1896,14 +1996,141 @@ function focusLocation(name, lat, lng) {
 }
 
 /* ═══════════════════════════════════════════
-   Feed Renderer
+   Feed Renderer & Spot Card Builder
    ═══════════════════════════════════════════ */
+function buildSpotCardHtml(spot, idx) {
+  let mealsHtml = '';
+  if (spot.meals && spot.meals.length > 0) {
+    mealsHtml += `
+      <div class="meal-section">
+        <div class="meal-section-head">
+          <span>🍽️ 候选正餐精选 (Naver 官方实拍 & 地图精确定位)</span>
+        </div>
+        <div class="meal-cards-list">
+    `;
+    spot.meals.forEach(m => {
+      mealsHtml += `
+        <div class="meal-item ${m.top ? 'top-rank' : ''}" onclick="event.stopPropagation(); focusLocation('${m.name.replace(/'/g, "\\'")}', ${m.lat}, ${m.lng})">
+          <img src="${m.img}" class="meal-item-thumb" alt="${m.name}" loading="lazy" />
+          <div class="meal-item-content">
+            <div class="meal-name-row">
+              <div class="meal-name">${m.name}</div>
+              <div class="meal-score">${m.score}</div>
+            </div>
+            <div class="meal-address">📍 ${m.address}</div>
+            <div class="meal-memo">${m.memo}</div>
+            <div class="meal-meta-row">
+              <span>🕒 ${m.hours}</span>
+              <span style="color:var(--ink);font-weight:700;">💰 ${m.budget}</span>
+              ${m.booking ? `<span style="color:#e02020;font-weight:700;">${m.booking}</span>` : ''}
+            </div>
+            <div class="meal-actions-row">
+              ${m.catchtable ? `<a href="https://app.catchtable.co.kr" target="_blank" class="btn-rausch" onclick="event.stopPropagation()">📱 CatchTable 预约/取号</a>` : ''}
+              ${m.naverUrl ? `<a href="${m.naverUrl}" target="_blank" class="btn-outline" onclick="event.stopPropagation()">🟢 Naver Map</a>` : ''}
+            </div>
+          </div>
+        </div>
+      `;
+    });
+    mealsHtml += `</div></div>`;
+  }
+
+  // Airport cards have NO image banner, only a clean header
+  const mediaHtml = spot.img ? `
+    <div class="card-media">
+      <img src="${spot.img}" alt="${spot.name}" loading="lazy" />
+      <div class="badge-float-left ${spot.badge?.includes('首选') || spot.badge?.includes('必买') || spot.badge?.includes('必逛') ? 'highlight' : ''}">
+        ${spot.badge || '精选打卡'}
+      </div>
+      <div class="time-pill-float">第 ${idx + 1} 站 · ${spot.time}</div>
+    </div>
+  ` : `
+    <div style="padding: 16px 18px 0; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+      <span class="badge-float-left" style="position:static;box-shadow:none;background:var(--surface-soft);border:1px solid var(--hairline);">${spot.badge || '航班'}</span>
+      <span style="font-size:12px;font-weight:700;color:var(--muted);">第 ${idx + 1} 站 · ${spot.time}</span>
+    </div>
+  `;
+
+  const isClickable = spot.lat && spot.lng;
+  const cardClickAttr = isClickable ? `onclick="focusLocation('${spot.name.replace(/'/g, "\\'")}', ${spot.lat}, ${spot.lng})"` : '';
+  const cardClass = isClickable ? 'spot-card clickable' : 'spot-card';
+
+  return `
+    <article class="${cardClass}" ${cardClickAttr}>
+      ${mediaHtml}
+      <div class="card-body">
+        <div class="card-title-row">
+          <div>
+            <h3 class="card-title">${idx + 1}. ${spot.name}</h3>
+            <div class="card-kor-name">${spot.kor || ''}</div>
+          </div>
+        </div>
+
+        ${spot.address ? `<div class="card-address">📍 ${spot.address}</div>` : ''}
+
+        <div class="meta-pills">
+          ${spot.transit ? `<span class="pill transit">${spot.transit}</span>` : ''}
+          ${spot.hours ? `<span class="pill hours">${spot.hours}</span>` : ''}
+        </div>
+
+        ${spot.desc ? `<div class="card-desc">${spot.desc}</div>` : ''}
+
+        ${mealsHtml}
+
+        ${spot.naverUrl ? `
+        <div class="card-bottom-actions">
+          <a href="${spot.naverUrl}" target="_blank" class="btn-outline" onclick="event.stopPropagation()">🟢 打开 Naver Map 导航</a>
+        </div>` : ''}
+      </div>
+    </article>
+  `;
+}
+
 function renderFeed(dayId) {
   const container = document.getElementById('feedList');
   const titleEl = document.getElementById('feedTitle');
   const subEl = document.getElementById('feedSubtitle');
 
-  if (dayId === 0) {
+  if (dayId === 'all') {
+    titleEl.textContent = '首尔 4 天 3 晚 完整行程长手册 (D1~D4 全展开)';
+    subEl.textContent = '长PDF导出专版 · 包含全部4天景点动线、精选美食与 Naver 预约备忘';
+    
+    let html = `
+      <div class="print-only-header">
+        <h1 style="font-size:22pt;font-weight:900;margin-bottom:6px;">🧗 首尔 4天3晚 · 抱石·买手街区·美食漫游路书</h1>
+        <div style="font-size:11pt;color:#555;margin-bottom:10px;">📅 2026年9月12日 ~ 9月15日 ｜ ✈️ 去程 9/12 GMP 14:00 (OZ3625) ｜ ✈️ 返程 9/15 ICN 20:00 (OZ367) ｜ 🏨 宿 钟路三街 The Square Hostel</div>
+      </div>
+      <div class="all-days-print-banner" style="background:var(--surface-soft);border:1px solid var(--hairline);border-radius:var(--radius-md);padding:14px 18px;margin-bottom:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+        <div>
+          <b style="font-size:15px;color:var(--ink);">📑 当前已展开全 4 天完整长文档视图</b>
+          <div style="font-size:12.5px;color:var(--muted);margin-top:2px;">可直接使用浏览器「打印另存为 PDF」或使用「截取完整尺寸长图」导出无缝单页超长 PDF</div>
+        </div>
+        <button onclick="window.print()" class="btn-rausch" style="padding:8px 16px;font-size:13px;">🖨️ 立即打印 / 另存为 PDF</button>
+      </div>
+    `;
+
+    for (let i = 1; i < ITINERARY_DAYS.length; i++) {
+      const d = ITINERARY_DAYS[i];
+      html += `
+        <div class="print-day-header" style="margin-top:32px;margin-bottom:16px;padding-bottom:8px;border-bottom:2.5px solid ${d.color || '#222'};">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;">
+            <h2 style="font-size:20px;font-weight:900;color:${d.color || 'var(--ink)'};letter-spacing:-0.4px;">
+              ${d.label} · ${d.date}
+            </h2>
+            <span style="font-size:12px;font-weight:700;color:var(--muted);background:var(--surface-soft);padding:3px 10px;border-radius:12px;">共 ${d.spots.length} 个节点</span>
+          </div>
+          <div style="font-size:13.5px;color:var(--body);margin-top:4px;font-weight:600;">${d.title}</div>
+        </div>
+        <div class="feed-list" style="margin-bottom:24px;">
+      `;
+      d.spots.forEach((spot, idx) => {
+        html += buildSpotCardHtml(spot, idx);
+      });
+      html += `</div>`;
+    }
+
+    container.innerHTML = html;
+  } else if (dayId === 0) {
     titleEl.textContent = '首尔 4 天 3 晚 抱石 & 美食漫游指南';
     subEl.textContent = 'Naver 官方封面实拍 · 全候选餐厅地图定位 · 营业时间与 CatchTable 预约链接';
     
@@ -1963,91 +2190,7 @@ function renderFeed(dayId) {
 
     let html = '';
     d.spots.forEach((spot, idx) => {
-      let mealsHtml = '';
-      if (spot.meals && spot.meals.length > 0) {
-        mealsHtml += `
-          <div class="meal-section">
-            <div class="meal-section-head">
-              <span>🍽️ 候选正餐精选 (Naver 官方实拍 & 地图精确定位)</span>
-            </div>
-            <div class="meal-cards-list">
-        `;
-        spot.meals.forEach(m => {
-          mealsHtml += `
-            <div class="meal-item ${m.top ? 'top-rank' : ''}" onclick="event.stopPropagation(); focusLocation('${m.name.replace(/'/g, "\\'")}', ${m.lat}, ${m.lng})">
-              <img src="${m.img}" class="meal-item-thumb" alt="${m.name}" loading="lazy" />
-              <div class="meal-item-content">
-                <div class="meal-name-row">
-                  <div class="meal-name">${m.name}</div>
-                  <div class="meal-score">${m.score}</div>
-                </div>
-                <div class="meal-address">📍 ${m.address}</div>
-                <div class="meal-memo">${m.memo}</div>
-                <div class="meal-meta-row">
-                  <span>🕒 ${m.hours}</span>
-                  <span style="color:var(--ink);font-weight:700;">💰 ${m.budget}</span>
-                  ${m.booking ? `<span style="color:#e02020;font-weight:700;">${m.booking}</span>` : ''}
-                </div>
-                <div class="meal-actions-row">
-                  ${m.catchtable ? `<a href="https://app.catchtable.co.kr" target="_blank" class="btn-rausch" onclick="event.stopPropagation()">📱 CatchTable 预约/取号</a>` : ''}
-                  ${m.naverUrl ? `<a href="${m.naverUrl}" target="_blank" class="btn-outline" onclick="event.stopPropagation()">🟢 Naver Map</a>` : ''}
-                </div>
-              </div>
-            </div>
-          `;
-        });
-        mealsHtml += `</div></div>`;
-      }
-
-      // Airport cards have NO image banner, only a clean header
-      const mediaHtml = spot.img ? `
-        <div class="card-media">
-          <img src="${spot.img}" alt="${spot.name}" loading="lazy" />
-          <div class="badge-float-left ${spot.badge?.includes('首选') || spot.badge?.includes('必买') || spot.badge?.includes('必逛') ? 'highlight' : ''}">
-            ${spot.badge || '精选打卡'}
-          </div>
-          <div class="time-pill-float">第 ${idx + 1} 站 · ${spot.time}</div>
-        </div>
-      ` : `
-        <div style="padding: 16px 18px 0; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
-          <span class="badge-float-left" style="position:static;box-shadow:none;background:var(--surface-soft);border:1px solid var(--hairline);">${spot.badge || '航班'}</span>
-          <span style="font-size:12px;font-weight:700;color:var(--muted);">第 ${idx + 1} 站 · ${spot.time}</span>
-        </div>
-      `;
-
-      const isClickable = spot.lat && spot.lng;
-      const cardClickAttr = isClickable ? `onclick="focusLocation('${spot.name.replace(/'/g, "\\'")}', ${spot.lat}, ${spot.lng})"` : '';
-      const cardClass = isClickable ? 'spot-card clickable' : 'spot-card';
-
-      html += `
-        <article class="${cardClass}" ${cardClickAttr}>
-          ${mediaHtml}
-          <div class="card-body">
-            <div class="card-title-row">
-              <div>
-                <h3 class="card-title">${idx + 1}. ${spot.name}</h3>
-                <div class="card-kor-name">${spot.kor || ''}</div>
-              </div>
-            </div>
-
-            ${spot.address ? `<div class="card-address">📍 ${spot.address}</div>` : ''}
-
-            <div class="meta-pills">
-              ${spot.transit ? `<span class="pill transit">${spot.transit}</span>` : ''}
-              ${spot.hours ? `<span class="pill hours">${spot.hours}</span>` : ''}
-            </div>
-
-            ${spot.desc ? `<div class="card-desc">${spot.desc}</div>` : ''}
-
-            ${mealsHtml}
-
-            ${spot.naverUrl ? `
-            <div class="card-bottom-actions">
-              <a href="${spot.naverUrl}" target="_blank" class="btn-outline" onclick="event.stopPropagation()">🟢 打开 Naver Map 导航</a>
-            </div>` : ''}
-          </div>
-        </article>
-      `;
+      html += buildSpotCardHtml(spot, idx);
     });
 
     container.innerHTML = html;
@@ -2064,7 +2207,9 @@ function switchDay(dayId) {
 
   const tabs = document.querySelectorAll('.nav-tab');
   tabs.forEach((tab, index) => {
-    if (index === dayId) {
+    const tabDay = tab.getAttribute('data-day');
+    const isMatch = (dayId === 'all') ? (tabDay === 'all') : (tabDay === String(dayId) || index === dayId);
+    if (isMatch) {
       tab.classList.add('active');
       // Auto-center the active tab horizontally on mobile screens
       if (typeof tab.scrollIntoView === 'function') {
@@ -2077,7 +2222,7 @@ function switchDay(dayId) {
 
   closeMobileMapCard();
   renderFeed(dayId);
-  renderMapMarkers(dayId);
+  renderMapMarkers(dayId === 'all' ? 0 : dayId);
 
   // If in list view, smoothly scroll up
   if (!document.body.classList.contains('mobile-map-active')) {
@@ -2088,6 +2233,13 @@ function switchDay(dayId) {
       if (map) map.invalidateSize();
     }, 150);
   }
+}
+
+function printFullItinerary() {
+  switchDay('all');
+  setTimeout(() => {
+    window.print();
+  }, 350);
 }
 
 let isMobileMapOpen = false;
