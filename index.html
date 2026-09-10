@@ -1032,7 +1032,7 @@ button { font-family: inherit; }
   <div class="header-top">
     <div class="trip-title-group">
       <h1>🧗 首尔 4天3晚 · 抱石·买手街区·美食漫游攻略</h1>
-      <div class="trip-dates">📅 2026年9月12日 (周六) ~ 9月15日 (周二) · 2天抱石 + 2天街区漫游</div>
+      <div class="trip-dates">📅 2026年9月12日 (周六) ~ 9月15日 (周二) · 圣水直达潮流 + 弘大街头 + PEAKERS影院抱石 + 安国北村慢调</div>
     </div>
     <div class="header-meta-group">
       <div class="meta-chip">✈️ 去程 <b>9/12(六) 14:00 GMP (OZ3625)</b></div>
@@ -1052,16 +1052,16 @@ button { font-family: inherit; }
         <span>行程总览</span>
       </button>
       <button class="nav-tab" data-day="1" onclick="switchDay(1)">
-        <span class="tab-icon">🧗</span>
-        <span>D1 钟路抱石 (9/12 周六)</span>
+        <span class="tab-icon">🛍️</span>
+        <span>D1 圣水潮流 (9/12 周六)</span>
       </button>
       <button class="nav-tab" data-day="2" onclick="switchDay(2)">
         <span class="tab-icon">🛍️</span>
         <span>D2 弘大·延南 (9/13 周日)</span>
       </button>
       <button class="nav-tab" data-day="3" onclick="switchDay(3)">
-        <span class="tab-icon">🥐</span>
-        <span>D3 圣水潮流 (9/14 周一)</span>
+        <span class="tab-icon">🧗</span>
+        <span>D3 圣水·PEAKERS抱石 (9/14 周一)</span>
       </button>
       <button class="nav-tab" data-day="4" onclick="switchDay(4)">
         <span class="tab-icon">🌽</span>
@@ -1171,7 +1171,7 @@ const OFFICIAL_DATA = {
     kor: '탄산 마그네슘 플리마켓',
     lat: 37.5435429, lng: 127.0538652,
     address: '首尔特别市 城东区 圣水洞二街 316-49',
-    img: 'images/standard_bread.jpg',
+    img: 'images/carbon_mg.jpg',
     naverUrl: 'https://map.naver.com/p/search/%ED%83%84%EC%82%B0%20%EB%A7%88%EA%B7%B8%EB%84%A4%EC%8A%98%20%ED%94%8C%EB%A6%AC%EB%A7%88%EC%BC%93'
   },
   hyoja: {
@@ -1270,13 +1270,37 @@ const OFFICIAL_DATA = {
     img: null,
     naverUrl: 'https://map.naver.com/p/search/%EB%A1%9C%EC%9A%B0%ED%81%B4%EB%9E%98%EC%8B%9D%20%EC%84%B1%EC%88%98'
   },
-  musinsa_seongsu: {
-    name: 'MUSINSA STANDARD 무신사 스탠다드 (圣水店)',
-    kor: '무신사 스탠다드 성수',
-    lat: 37.5433, lng: 127.0581,
-    address: '首尔特别市 城东区 圣水洞二街 271-22 (연무장길 83)',
+  tamburins_seongsu: {
+    name: 'TAMBURINS 탬버린즈 (圣水旗舰店)',
+    kor: '탬버린즈 성수',
+    lat: 37.5438, lng: 127.0548,
+    address: '首尔特别市 城东区 圣水洞二街 316-43 (연무장5길 8)',
     img: null,
-    naverUrl: 'https://map.naver.com/p/search/%EB%AC%B4%EC%8B%A0%EC%82%AC%20%EC%8A%A4%ED%83%A0%EB%8B%A4%EB%93%9C%20%EC%84%B1%EC%88%98'
+    naverUrl: 'https://map.naver.com/p/search/%ED%83%AC%EB%B2%84%EB%A6%B0%EC%A6%88%20%EC%84%B1%EC%88%98'
+  },
+  musinsa_seongsu: {
+    name: 'MUSINSA STORE SEONGSU @ 大林仓库 (무신사 스토어 성수@대림창고)',
+    kor: '무신사 스토어 성수@대림창고',
+    lat: 37.5422, lng: 127.0563,
+    address: '首尔特别市 城东区 圣水洞二街 322-32 (성수이로 74)',
+    img: null,
+    naverUrl: 'https://map.naver.com/p/search/%EB%AC%B4%EC%8B%A0%EC%82%AC%20%EC%84%B1%EC%88%98%20%EB%8C%80%EB%A6%BC%EC%B0%BD%EA%B3%A0'
+  },
+  mandong: {
+    name: '만동제과 연남점 (万东制果 延南店)',
+    kor: '만동제과 연남점',
+    lat: 37.561526, lng: 126.9272585,
+    address: '首尔特别市 西大门区 沧川洞 448 (연희로 32)',
+    img: 'images/mandong.jpg',
+    naverUrl: 'https://map.naver.com/p/search/%EB%A7%8C%EB%8F%99%EC%A0%9C%EA%B3%BC'
+  },
+  layered: {
+    name: '카페 레이어드 연남점 (Cafe Layered 延南店)',
+    kor: '카페 레이어드 연남점',
+    lat: 37.5627259, lng: 126.9247196,
+    address: '首尔特别市 麻浦区 延南洞 223-20 (성미산로 161-4)',
+    img: null,
+    naverUrl: 'https://map.naver.com/p/search/%EB%A0%88%EC%9D%B4%EC%96%B4%EB%93%9C%20%EC%97%B0%EB%82%A8%EC%A0%90'
   },
   eyes_think: {
     name: 'EYES THINK 아이즈씽크 (弘大店)',
@@ -1336,7 +1360,7 @@ const ITINERARY_DAYS = [
     id: 1,
     label: 'D1 落地·圣水潮流巡礼',
     date: '9月12日 (周六)',
-    title: '金浦极速出关 · 影院岩壁打卡 · 圣水洞先锋潮流服饰巡礼 (衣服店优先+Olive Young压轴)',
+    title: '金浦极速出关 · 旅舍入住 · 圣水洞先锋潮流服饰巡礼 (The Gear Shop 装备旗舰 + 季子岚炭火鸡排 + 买手店街区 + Olive Young)',
     color: '#007aff',
     spots: [
       {
@@ -1358,26 +1382,12 @@ const ITINERARY_DAYS = [
         lat: OFFICIAL_DATA.hostel.lat, lng: OFFICIAL_DATA.hostel.lng,
         address: OFFICIAL_DATA.hostel.address,
         img: OFFICIAL_DATA.hostel.img,
-        time: '15:15 - 15:40',
+        time: '15:15 - 15:45',
         badge: '住宿大本营',
         hours: '🕒 入住时间 15:00 起',
         transit: '🚶 钟路三街站 5号口步行 150 米',
-        desc: '办理入住与放置行李，换上攀岩服与岩鞋，步行至岩馆仅 200 米。',
+        desc: '办理入住与寄存行李，换上轻便舒适衣物后直接出发，搭乘地铁直奔圣水洞！',
         naverUrl: OFFICIAL_DATA.hostel.naverUrl
-      },
-      {
-        name: OFFICIAL_DATA.peakers.name,
-        shortName: 'PEAKERS 影院岩壁打卡',
-        kor: OFFICIAL_DATA.peakers.kor,
-        lat: OFFICIAL_DATA.peakers.lat, lng: OFFICIAL_DATA.peakers.lng,
-        address: OFFICIAL_DATA.peakers.address,
-        img: OFFICIAL_DATA.peakers.img,
-        time: '15:45 - 16:15',
-        badge: '【打卡看一眼】影院挑空超高岩壁',
-        hours: '🕒 周末/公休 10:00 - 20:00',
-        transit: '🚶 CGV 钟路店 4层，从 Hostel 步行 2 分钟',
-        desc: '电影院挑空改造的特色岩馆。第一天不爬保存体力，进馆前台参观打卡，透过挑空落地玻璃感受超高影院岩壁气势与岩友刷线氛围，拍照留念后出发去圣水洞！',
-        naverUrl: OFFICIAL_DATA.peakers.naverUrl
       },
       {
         name: OFFICIAL_DATA.the_gear_shop.name,
@@ -1386,12 +1396,26 @@ const ITINERARY_DAYS = [
         lat: OFFICIAL_DATA.the_gear_shop.lat, lng: OFFICIAL_DATA.the_gear_shop.lng,
         address: OFFICIAL_DATA.the_gear_shop.address,
         img: null,
-        time: '16:50 - 17:50',
-        badge: '【岩友圣地】Scarpa+始祖鸟+攀岩装备',
+        time: '16:15 - 16:50',
+        badge: '【岩友圣地】Scarpa+始祖鸟+攀岩装备 (精选35分钟)',
         hours: '🕒 营业时间: 10:00 - 20:00',
-        transit: '🚇 钟路三街站乘3号线至乙支路三街转2号线至【圣水站 4号口】(20分钟)，步行至演武场3街',
-        desc: '<b>【饭前抢先逛】</b>Nelson Sports 打造的 3 层独立户外概念旗舰空间：<br>• <b>1F Scarpa 专区</b>：攀岩鞋试穿/选品圣地、接近鞋(Approach)及品牌快闪；<br>• <b>2F Arc\'teryx 始祖鸟</b>：登山/攀岩/越野跑全系列机能服饰；<br>• <b>3F 攀岩装备与岩友社区</b>：Black Diamond、Mad Rock、粉袋、锁扣与攀岩配件。',
+        transit: '🚇 钟路三街站乘3号线至乙支路三街转2号线至【圣水站 4号口】(约22分钟)，出站步行至演武场3街',
+        desc: '<b>【饭前抢先逛】</b>办理完入住直接来到圣水！Nelson Sports 打造的 3 层独立户外概念旗舰空间：<br>• <b>1F Scarpa 专区</b>：攀岩鞋试穿/选品圣地、接近鞋(Approach)及品牌快闪；<br>• <b>2F Arc\'teryx 始祖鸟</b>：登山/攀岩/越野跑全系列机能服饰；<br>• <b>3F 攀岩装备与岩友社区</b>：Black Diamond、Mad Rock、粉袋、锁扣与攀岩配件。',
         naverUrl: OFFICIAL_DATA.the_gear_shop.naverUrl
+      },
+      {
+        name: OFFICIAL_DATA.carbon_mg.name,
+        shortName: '碳酸镁跳蚤市场',
+        kor: OFFICIAL_DATA.carbon_mg.kor,
+        lat: OFFICIAL_DATA.carbon_mg.lat, lng: OFFICIAL_DATA.carbon_mg.lng,
+        address: OFFICIAL_DATA.carbon_mg.address,
+        img: 'images/carbon_mg.jpg',
+        time: '16:55 - 17:50',
+        badge: '【攀岩潮牌】爬石头才能进的服装店·岩友专属生活方式',
+        hours: '🕒 营业时间: 11:00 - 20:00 (周六正常营业)',
+        transit: '🚶 从 The Gear Shop 漫步 2 分钟即达 (성수이로 7길 27 / 圣水洞二街 316-49)',
+        desc: '<b>【攀岩者专属打卡 · 爬石头才能上去的服装店】</b>Naver 清单专属备注宝藏店！韩国首个专为攀岩爱好者创立的街头潮流与生活方式买手店！专卖版型绝佳的攀岩裤、透气T恤、粉袋、抱石周边与创意贴纸，质感极高。从 The Gear Shop 步行 2 分钟即达，紧邻演武场主街，晚餐前打卡顺路满分！',
+        naverUrl: OFFICIAL_DATA.carbon_mg.naverUrl
       },
       {
         name: '숯불닭갈비 계자람 성수본점 (炭火鸡排 季子岚)',
@@ -1403,7 +1427,7 @@ const ITINERARY_DAYS = [
         time: '18:00 - 19:00',
         badge: '🟢 Naver 已预约 18:00 (预留1小时用餐)',
         hours: '🕒 营业时间: 11:30 - 22:00 (最后点单 21:00)',
-        transit: '🚶 从 The Gear Shop 漫步 3 分钟即达餐厅',
+        transit: '🚶 从碳酸镁跳蚤市场漫步 3 分钟即达餐厅 (圣水站4号口南侧)',
         desc: '<b>【Naver 成功预约 18:00】</b>预留整整 1 小时用餐时间。享用鲜嫩炭火烤鸡腿排、浓郁拉丝芝士蘸酱与清爽拌冷面，高蛋白补充体能！吃饱后继续漫步圣水夜景潮流街。',
         naverUrl: 'https://map.naver.com/p/search/%EC%88%AF%EB%B6%88%EB%8B%AD%EA%B0%88%EB%B9%84%20%EA%B3%84%EC%9E%90%EB%9E%8C%20%EC%84%B1%EC%88%98'
       },
@@ -1423,16 +1447,16 @@ const ITINERARY_DAYS = [
       },
       {
         name: OFFICIAL_DATA.musinsa_seongsu.name,
-        shortName: 'Musinsa Standard',
+        shortName: 'Musinsa 大林仓库旗舰店',
         kor: OFFICIAL_DATA.musinsa_seongsu.kor,
         lat: OFFICIAL_DATA.musinsa_seongsu.lat, lng: OFFICIAL_DATA.musinsa_seongsu.lng,
         address: OFFICIAL_DATA.musinsa_seongsu.address,
         img: null,
-        time: '19:45 - 20:35',
-        badge: '【性价比版型天花板】男女装神仙剪裁',
-        hours: '🕒 营业时间: 11:00 - 22:00 (营业至深夜)',
-        transit: '🚶 就在 Low Classic 正对面 (相隔仅 10 米！)',
-        desc: '<b>【极高性价比·男女装通杀】</b>韩国潮流平台 MUSINSA 自营实体旗舰。韩国版“COS剪裁+优衣库价格”，百搭神仙神裤（阔腿西裤/牛仔裤）、重磅打底与风衣夹克，价格多在 150-450 元，疯狂试穿挑版型！',
+        time: '19:45 - 20:45',
+        badge: '【圣水最大旗舰】700坪大林仓库爆改·100+独立潮牌集成',
+        hours: '🕒 营业时间: 11:00 - 22:00 (全周无休)',
+        transit: '🚶 从 Low Classic 沿圣水二路南行 2 分钟即达 (성수이로 74)',
+        desc: '<b>【全圣水规模最大·最新地标旗舰】</b>2024年秋季全新开幕！由圣水标志性红砖大林仓库（대림창고）爆改而成的 700 坪巨型综合买手店！汇集超过 100 个当红 K-Fashion 设计师品牌、潮流女装男装、超大球鞋墙与顶流快闪，完全不同于基础款的 Musinsa Standard，是目前圣水洞逛衣服规模最大、品类最全的必打卡殿堂！',
         naverUrl: OFFICIAL_DATA.musinsa_seongsu.naverUrl
       },
       {
@@ -1442,10 +1466,10 @@ const ITINERARY_DAYS = [
         lat: OFFICIAL_DATA.blue_elephant.lat, lng: OFFICIAL_DATA.blue_elephant.lng,
         address: OFFICIAL_DATA.blue_elephant.address,
         img: OFFICIAL_DATA.blue_elephant.img,
-        time: '20:35 - 21:05',
+        time: '20:45 - 21:15',
         badge: '【小众平价墨镜】爱豆同款前卫设计',
         hours: '🕒 营业时间: 10:00 - 22:00',
-        transit: '🚶 沿演武场主街向西回走 3 分钟 (연무장길 43-1)',
+        transit: '🚶 从大林仓库漫步 3 分钟至演武场主街 (연무장길 43-1)',
         desc: '韩国超人气平价设计师眼镜/墨镜品牌，复古前卫设计，爱豆私服同款试戴选购，单价两三百元性价比极高。',
         naverUrl: OFFICIAL_DATA.blue_elephant.naverUrl
       },
@@ -1456,10 +1480,10 @@ const ITINERARY_DAYS = [
         lat: OFFICIAL_DATA.olive_young_n.lat, lng: OFFICIAL_DATA.olive_young_n.lng,
         address: OFFICIAL_DATA.olive_young_n.address,
         img: 'images/olive_young_n.jpg',
-        time: '21:10 - 22:00',
+        time: '21:15 - 22:00',
         badge: '【首尔最大旗舰店】5层美妆收尾压轴',
         hours: '🕒 营业时间: 10:00 - 22:00 (最后逛·提货上车)',
-        transit: '🚶 位于圣水站 4号口旁 (성수이로 88)，逛完漫步 3 分钟即达',
+        transit: '🚶 从 Blue Elephant 漫步 3 分钟至圣水站 4号口旁 (성수이로 88)',
         desc: '<b>【美妆最后压轴·不提重物逛街】</b>全首尔最大 5 层巨型美妆旗舰店！全品类护肤彩妆试用、个护与限定礼盒。血拼采购完直接进旁边的【圣水站 4号口】乘地铁 2号线转3号线回钟路三街旅舍，极致轻松！',
         naverUrl: OFFICIAL_DATA.olive_young_n.naverUrl
       }
@@ -1585,55 +1609,42 @@ const ITINERARY_DAYS = [
         naverUrl: OFFICIAL_DATA.badblood.naverUrl
       },
       {
-        name: '延南洞 慢调艺术街区漫步 & 精品甜点 (3选1)',
-        shortName: '延南洞漫步甜点',
-        kor: '연남동 산책 & 베이커리',
-        lat: 37.5615783, lng: 126.9248532,
-        address: '首尔特别市 麻浦区 延南洞 227-15',
-        img: 'images/parole_langue.jpg',
+        name: '延南洞 烘焙名店漫步 · 万东制果 & Cafe Layered',
+        shortName: '万东制果 & 司康漫步',
+        kor: '만동제과 & 카페 레이어드',
+        lat: 37.561526, lng: 126.9272585,
+        address: '首尔特别市 西大门区 延禧路 32 (万东制果) / 麻浦区 延南洞 223-20 (Layered)',
+        img: 'images/mandong.jpg',
         time: '16:00 - 17:45',
-        badge: '京义线林荫道 + 治愈买手巷弄',
-        transit: '🚶 从弘大/合井漫步穿过京义线林荫树木道，约 10 分钟即达延南洞核心街区',
-        desc: '告别弘大喧闹，午后漫步延南洞红砖街区、独立陶艺杂货店，品尝首尔殿堂级精致法式/英式甜点。',
+        badge: '【Naver官方清单】打包招牌大蒜法棍 + 殿堂级司康堂食',
+        transit: '🚶 从 BADBLOOD 漫步穿过京义线林荫树木道，约 8~10 分钟即达万东制果与延南洞街区',
+        desc: '告别弘大喧闹，午后漫步延南洞静谧林荫道与红砖买手小巷。清单中的两家王牌烘焙完美互补：先去<b>万东制果</b>买招牌大蒜法棍打包，再漫步至 <b>Cafe Layered</b> 挑一块复古司康享受下午茶时光！',
+        naverUrl: 'https://map.naver.com/p/search/%EB%A7%8C%EB%8F%99%EC%A0%9C%EA%B3%BC',
         meals: [
           {
-            name: '파롤앤랑그 (Parole & Langue)',
-            score: '4.64 ★ 🥇 现象级精致水果法式挞',
-            lat: 37.5615783, lng: 126.9248532,
-            address: '首尔特别市 麻浦区 延南洞 227-15',
-            img: 'images/parole_langue.jpg',
+            name: '만동제과 연남점 (万东制果 / Mandong Bakery)',
+            score: '4.68 ★ 🥇 蒜香爆浆法棍·必买面包打包',
+            lat: 37.561526, lng: 126.9272585,
+            address: '首尔特别市 西大门区 沧川洞 448 (연희로 32)',
+            img: 'images/mandong.jpg',
             top: true,
-            hours: '13:00 - 21:00 (周一公休·周日正常营业)',
-            booking: '📱 12:30 现场平板取号 / 稍作等待',
-            memo: '类型：现象级艺术甜品 ｜ 必点：罗勒番茄挞、栗子挞、玉米挞',
-            budget: '约 ¥65/人',
+            hours: '11:00 - 20:30 (售罄即止)',
+            booking: '现场直接选购打包 / 翻台极快',
+            memo: '类型：首尔本地封神面包专门店 ｜ 必买：招牌蒜香奶油爆浆法棍、罗勒法棍、墨鱼软欧包',
+            budget: '约 ¥45/人',
             catchtable: false,
-            naverUrl: 'https://map.naver.com/p/search/%ED%8C%8C%EB%A1%A4%EC%95%A4%EB%9E%91%EA%B7%B8'
+            naverUrl: 'https://map.naver.com/p/search/%EB%A7%8C%EB%8F%99%EC%A0%9C%EA%B3%BC'
           },
           {
-            name: '랜디스도넛 연남점 (Randy\'s Donuts 延南店)',
-            score: '4.52 ★ · 经典美式现炸爆浆甜甜圈',
-            lat: 37.5610814, lng: 126.9255621,
-            address: '首尔特别市 麻浦区 东桥洞 147-38',
-            img: 'images/randys.jpg',
-            top: false,
-            hours: '11:00 - 21:00 (全天无休)',
-            booking: '现场排队外带或堂食',
-            memo: '类型：钢铁侠同款美式甜甜圈 ｜ 必点：苹果煎饼甜甜圈、黄油枫糖培根',
-            budget: '约 ¥40/人',
-            catchtable: false,
-            naverUrl: 'https://map.naver.com/p/search/%EB%9E%9C%EB%94%94%EC%8A%A4%EB%8F%84%EB%84%97%20%EC%97%B0%EB%82%A8'
-          },
-          {
-            name: '레이어드 연남점 (Cafe Layered 延南店)',
-            score: '4.48 ★ · 英伦复古风殿堂级司康',
+            name: '카페 레이어드 연남점 (Cafe Layered 延南店)',
+            score: '4.48 ★ · 英伦复古风殿堂级司康下午茶',
             lat: 37.5627259, lng: 126.9247196,
-            address: '首尔特别市 麻浦区 延南洞 223-20',
-            img: 'images/layered.jpg',
+            address: '首尔特别市 麻浦区 延南洞 223-20 (성미산로 161-4)',
+            img: null,
             top: false,
             hours: '11:00 - 22:00 (全天无休)',
-            booking: '现场直接入座',
-            memo: '类型：英伦复古烘焙屋 ｜ 必点：蔓越莓奶油司康、维多利亚海绵蛋糕',
+            booking: '现场直接选座 / 氛围极出片',
+            memo: '类型：英伦复古烘焙屋 ｜ 必点：蔓越莓奶油司康、伯爵茶司康、维多利亚海绵蛋糕',
             budget: '约 ¥50/人',
             catchtable: false,
             naverUrl: 'https://map.naver.com/p/search/%EB%A0%88%EC%9D%B4%EC%96%B4%EB%93%9C%20%EC%97%B0%EB%82%A8%EC%A0%90'
@@ -1714,9 +1725,9 @@ const ITINERARY_DAYS = [
   },
   {
     id: 3,
-    label: 'D3 圣水·首尔林抱石',
+    label: 'D3 圣水漫游·PEAKERS抱石',
     date: '9月14日 (周一 工作日)',
-    title: '圣水深度游 · 碳酸镁攀岩潮店 + SATUR + 顶级碳水 + 首尔林岩馆 4小时深度畅爬',
+    title: '圣水上午碳水与攀岩潮牌漫游 · 顶级恰巴塔午餐 · 下午家门口 PEAKERS 影院超高岩壁 4小时畅爬 · 乙支路山清黑猪烤肉',
     color: '#af52de',
     spots: [
       {
@@ -1790,31 +1801,17 @@ const ITINERARY_DAYS = [
         naverUrl: OFFICIAL_DATA.new_mix.naverUrl
       },
       {
-        name: OFFICIAL_DATA.carbon_mg.name,
-        shortName: '碳酸镁攀岩潮牌',
-        kor: OFFICIAL_DATA.carbon_mg.kor,
-        lat: OFFICIAL_DATA.carbon_mg.lat, lng: OFFICIAL_DATA.carbon_mg.lng,
-        address: OFFICIAL_DATA.carbon_mg.address,
-        img: null,
-        time: '11:00 - 11:45',
-        badge: '【攀岩者圣地】韩国顶流攀岩生活方式潮牌',
-        hours: '🕒 营业时间: 11:00 - 20:00 (周一正常营业！)',
-        transit: '🚶 从 NEW MIX 沿演武场街漫步 3 分钟即达 (성수이로 7길 27)',
-        desc: '<b>【攀岩者专属打卡】</b>韩国首个专为攀岩爱好者创立的街头潮流与生活方式买手店！专卖版型绝佳的攀岩裤、透气T恤、粉袋、抱石周边与创意贴纸，质感极高。周一正常营业！',
-        naverUrl: OFFICIAL_DATA.carbon_mg.naverUrl
-      },
-      {
         name: OFFICIAL_DATA.satur_seongsu.name,
         shortName: 'SATUR 圣水店',
         kor: OFFICIAL_DATA.satur_seongsu.kor,
         lat: OFFICIAL_DATA.satur_seongsu.lat, lng: OFFICIAL_DATA.satur_seongsu.lng,
         address: OFFICIAL_DATA.satur_seongsu.address,
         img: null,
-        time: '11:45 - 12:40',
+        time: '11:00 - 12:30',
         badge: '【高性价比Clean Fit】周末假日惬意风',
         hours: '🕒 营业时间: 11:00 - 20:00 (全周无休)',
-        transit: '🚶 从碳酸镁攀岩潮店步行 2 分钟即达 (연무장길 14)',
-        desc: '<b>【明星博主爆款·圣水核心旗舰】</b>主打 "Gift Friday Saturday" 悠闲复古风，明星同款刺绣T恤、廓形卫衣与剪裁利落的夹克，质感出众且价位在 ¥200~¥700 间，试衣间与陈列极美！',
+        transit: '🚶 从 NEW MIX 沿演武场街漫步 2 分钟即达 (연무장길 14)',
+        desc: '<b>【明星博主爆款·圣水核心旗舰】</b>主打 "Gift Friday Saturday" 悠闲复古风，明星同款刺绣T恤、廓形卫衣与剪裁利落的夹克，质感出众且价位在 ¥200~¥700 间，试衣间与陈列极美！预留90分钟从容试穿选购。',
         naverUrl: OFFICIAL_DATA.satur_seongsu.naverUrl
       },
       {
@@ -1824,80 +1821,80 @@ const ITINERARY_DAYS = [
         lat: OFFICIAL_DATA.berty_sandwich.lat, lng: OFFICIAL_DATA.berty_sandwich.lng,
         address: OFFICIAL_DATA.berty_sandwich.address,
         img: OFFICIAL_DATA.berty_sandwich.img,
-        time: '12:45 - 13:50',
+        time: '12:35 - 13:45',
         badge: '【周一轻负担高蛋白午餐】首尔三明治天花板',
         hours: '🕒 营业时间: 10:00 - 19:30 (全周无休)',
         transit: '🚶 从 SATUR 圣水店步行 3 分钟即达 (연무장길 37-1)',
-        desc: '<b>【攀岩前优质碳水与高蛋白午餐】</b>首尔本地口碑炸裂的手工冷发酵恰巴塔三明治专门店！外皮薄脆内部湿润气孔丰盈，招牌意式熏肉火腿芝麻菜与松露牛肉三明治，美味饱腹且轻盈无肠胃负担，为下午首尔林 4 小时攀岩蓄满巅峰体能！',
+        desc: '<b>【攀岩前优质碳水与高蛋白午餐】</b>首尔本地口碑炸裂的手工冷发酵恰巴塔三明治专门店！外皮薄脆内部湿润气孔丰盈，招牌意式熏肉火腿芝麻菜与松露牛肉三明治，美味饱腹且轻盈无肠胃负担，为下午 PEAKERS 4 小时攀岩蓄满巅峰体能！',
         naverUrl: OFFICIAL_DATA.berty_sandwich.naverUrl
       },
       {
-        name: OFFICIAL_DATA.seoul_forest_climbing.name,
-        shortName: '首尔林抱石馆',
-        kor: OFFICIAL_DATA.seoul_forest_climbing.kor,
-        lat: OFFICIAL_DATA.seoul_forest_climbing.lat, lng: OFFICIAL_DATA.seoul_forest_climbing.lng,
-        address: OFFICIAL_DATA.seoul_forest_climbing.address,
-        img: OFFICIAL_DATA.seoul_forest_climbing.img,
-        time: '14:15 - 18:15',
-        badge: '【核心重头戏】4小时首尔顶级抱石畅爬',
-        hours: '🕒 周一营业时间: 10:00 - 23:00 (工作日人少好刷线！)',
-        transit: '🚶 从 Berty 三明治步行 10 分钟或乘地铁盆唐线 1 站至【首尔林站 2号口】旁 (B1层)',
-        desc: '<b>【重头戏 · 畅爬4小时】</b>首尔最具代表性的顶级抱石馆！宽敞通风、定期换线，拥有绝佳的大仰角、平衡板与多样化造型点。<br>⚠️ <b>出行备忘</b>：行前建议在官方 Instagram <b>@seoulforest_climbing</b> 私信核实：购买的一日通行证（Day Pass）是否支持首尔林所有连锁门店通用通刷。',
-        naverUrl: OFFICIAL_DATA.seoul_forest_climbing.naverUrl
+        name: OFFICIAL_DATA.peakers.name,
+        shortName: 'PEAKERS 影院抱石馆',
+        kor: OFFICIAL_DATA.peakers.kor,
+        lat: OFFICIAL_DATA.peakers.lat, lng: OFFICIAL_DATA.peakers.lng,
+        address: OFFICIAL_DATA.peakers.address,
+        img: OFFICIAL_DATA.peakers.img,
+        time: '14:30 - 18:30',
+        badge: '【核心重头戏】4小时电影院挑空岩壁畅爬',
+        hours: '🕒 周一营业时间: 10:00 - 23:00 (平日人少好刷线，营业至23点)',
+        transit: '🚇 从 Berty 三明治/圣水站乘地铁2号线至乙支路三街，换乘3号线至【钟路三街站 5号口】(约22分钟)，出站步行 2 分钟即达 CGV 钟路店 4层（就在旅舍大本营旁！）',
+        desc: '<b>【重头戏 · 畅爬4小时】</b>CGV 电影院挑空爆改的顶级特色岩馆！大仰角、平衡板与多样造型线，挑空极高视线震撼。<br>由于就在入住的 The Square 旅舍大本营门口（步行仅2分钟），爬完可直接回房间放下岩鞋粉袋、洗漱冲凉换衣，零路途奔波负担！',
+        naverUrl: OFFICIAL_DATA.peakers.naverUrl
       },
       {
-        name: '圣水洞 / 纛岛 顶尖聚餐晚餐 (3选1)',
-        shortName: '圣水晚餐 (3选1)',
-        kor: '성수/뚝섬 저녁 맛집',
-        lat: 37.5456208, lng: 127.0543601,
-        address: '首尔特别市 城东区 峨嵯山路 13-1',
+        name: '钟路 / 乙支路 晚间美食精选 (3选1)',
+        shortName: '钟路/乙支路晚餐 (3选1)',
+        kor: '종로/을지로 저녁 맛집',
+        lat: 37.565647, lng: 126.9919844,
+        address: '首尔特别市 中区 乙支路三街美食街区',
         img: 'images/sancheong.jpg',
         time: '18:50 - 20:30',
-        badge: '大口吃肉犒劳盛宴',
-        transit: '🚶 从首尔林岩馆步行 8 分钟或地铁 1 站至纛岛站/圣水站美食街',
-        desc: '4小时畅爬结束极度渴望肉食与碳水！享受极品山清黑猪炭火烤肉，或圣水老字号排骨大满足！',
+        badge: '大口吃肉犒劳盛宴 · 旅舍门口步行直达',
+        transit: '🚶 从 PEAKERS / 旅舍步行 8~10 分钟跨过清溪川即达乙支路三街美食街',
+        desc: '4小时畅爬结束极度渴望肉食与碳水！回旅舍冲凉换好衣服后，步行 8 分钟前往乙支路享受首尔黑猪肉天花板山清炭火花园，或小巷居酒屋！',
         meals: [
           {
-            name: '산청숯불가든 성수 (山清炭火花园 圣水店)',
-            score: '4.82 ★ 🥇 全首尔排队王·极品智异山黑猪肉',
-            lat: 37.5456208, lng: 127.0543601,
-            address: '首尔特别市 城东区 峨嵯山路 13-1 (纛岛站1号口)',
+            name: '산청숯불가든 을지로 2호점 (山清炭火花园 乙支路2号店)',
+            score: '4.85 ★ 🥇 首尔黑猪肉天花板·排队王',
+            lat: 37.565647, lng: 126.9919844,
+            address: '首尔特别市 中区 乙支路三街 302-1',
             img: 'images/sancheong.jpg',
             top: true,
-            hours: '11:30 - 23:00 (全天无休·中午无午休)',
-            booking: '📱 下午 17:30 提前在 Catchtable App 线上远程取号！',
-            memo: '类型：炭火直烤极品黑猪 ｜ 必点：盐烤智异山黑猪五花、传统生拌牛肉、黑猪大酱炒饭',
-            budget: '约 ¥140/人',
+            hours: '11:30 - 23:00 (无午休，最后点单 21:50)',
+            booking: '📱 CatchTable App 线上远程排队取号 (建议17:30提前取号)',
+            memo: '极品智异山黑猪肉+传统炭火！肉汁丰盈焦香，搭配特制泡菜与明兰，排队王烤肉。',
+            budget: '约 ¥160/人',
             catchtable: true,
-            naverUrl: 'https://map.naver.com/p/search/%EC%82%B0%EC%B2%AD%EC%87%AF%EB%B6%88%EA%B0%80%EB%93%A0%20%EC%84%B1%EC%88%98'
+            naverUrl: 'https://map.naver.com/p/search/%EC%82%B0%EC%B2%AD%EC%8F%AF%EB%B6%88%EA%B0%80%EB%93%A0%20%EC%9D%84%EC%A7%80%EB%A1%9C'
           },
           {
-            name: '성수감자탕 (圣水土豆排骨汤 / 传说的土豆汤)',
-            score: '4.62 ★ · 白钟元力荐老字号',
-            lat: 37.5435345, lng: 127.0573959,
-            address: '首尔特别市 城东区 圣水洞二街 315-100',
-            img: 'images/seongsu_soup.jpg',
+            name: '콘부 (Konbu 乙支路店)',
+            score: '4.52 ★ · 乙支路日式居酒屋/浓汤拉面',
+            lat: 37.5650851, lng: 126.9903413,
+            address: '首尔特别市 中区 乙支路三街 7-6',
+            img: 'images/konbu.jpg',
             top: false,
-            hours: '24小时营业 (全天无休)',
-            booking: '现场排队入座 (晚间翻台极快)',
-            memo: '类型：24小时老字号 ｜ 必点：浓郁大骨土豆汤、苏子叶土豆排骨锅、炒饭',
-            budget: '约 ¥70/人',
-            catchtable: false,
-            naverUrl: 'https://map.naver.com/p/search/%EC%86%8C%EB%AC%B8%EB%82%9C%20%EC%84%B1%EC%88%98%20%EA%B0%90%EC%9E%90%ED%83%95'
+            hours: '11:30 - 23:00 (午休 14:00-17:00)',
+            booking: '📱 现场 CatchTable 取号机 / 晚间直接入座',
+            memo: '乙支路小巷深夜食堂氛围居酒屋，招牌浓郁海鲜豚骨拉面与精选下酒炸物。',
+            budget: '约 ¥80/人',
+            catchtable: true,
+            naverUrl: 'https://map.naver.com/p/search/%EC%BD%98%EB%B6%80%20%EC%9D%84%EC%A7%80%EB%A1%9C'
           },
           {
-            name: '성수다락 (圣水多乐)',
-            score: '4.66 ★ · 网红日欧式蛋包饭意大利面',
-            lat: 37.5439712, lng: 127.0526019,
-            address: '首尔特别市 城东区 圣水洞二街 328-11',
-            img: 'images/seongsu_darak.jpg',
+            name: '광장시장 (广藏市场 小吃街)',
+            score: '4.48 ★ · 市井烟火传统夜市',
+            lat: 37.5701661, lng: 126.9990691,
+            address: '首尔特别市 钟路区 礼智洞 2-1',
+            img: 'images/gwangjang.jpg',
             top: false,
-            hours: '11:30 - 21:15 (周一营业)',
-            booking: '现场排队入座',
-            memo: '类型：精致日欧混血料理 ｜ 必点：多乐奶油瀑布蛋包饭、香辣奶油意面',
-            budget: '约 ¥85/人',
+            hours: '09:00 - 23:00',
+            booking: '无需预约，现场随买随吃',
+            memo: '生牛肉活章鱼配蛋黄、顺熙家绿豆煎饼、麻药紫菜包饭，从旅舍步行10分钟即达。',
+            budget: '约 ¥60/人',
             catchtable: false,
-            naverUrl: 'https://map.naver.com/p/search/%EC%84%B1%EC%88%98%EB%8B%A4%EB%9D%BD'
+            naverUrl: 'https://map.naver.com/p/search/%EA%B4%91%EC%9E%A5%EC%8B%9C%EC%9E%A5'
           }
         ]
       }
@@ -2546,14 +2543,14 @@ function renderFeed(dayId) {
           <div class="stat-sub">钟路三街站旁，步行2分钟即达各大岩馆</div>
         </div>
         <div class="stat-box">
-          <div class="stat-label">🧗 抱石打卡</div>
-          <div class="stat-val">PEAKERS 钟路店 (影院打卡)<br>Seoul Forest 圣水店 (首尔林)</div>
-          <div class="stat-sub">周六影院岩壁观赏 ｜ 周一 4小时深度畅爬首尔林</div>
+          <div class="stat-label">🧗 抱石畅爬</div>
+          <div class="stat-val">PEAKERS 钟路店 (CGV影院爆改)</div>
+          <div class="stat-sub">周一家门口 4小时深度畅爬 · 回旅舍冲凉仅2分钟</div>
         </div>
         <div class="stat-box">
           <div class="stat-label">👕 潮流逛街</div>
-          <div class="stat-val">圣水 (Gear Shop / Low Classic / Musinsa)<br>弘大 (Eyes Think / LMC / Fallett / BADBLOOD)</div>
-          <div class="stat-sub">圣水先锋服饰 + 弘大街头潮牌 + 延南小资慢调</div>
+          <div class="stat-val">圣水 (The Gear Shop / Low Classic / Musinsa / SATUR)<br>弘大 (Eyes Think / LMC / Fallett / BADBLOOD)</div>
+          <div class="stat-sub">周六落地直奔圣水买手店 ｜ 周一上午二刷潮流街区</div>
         </div>
       </div>
       <h3 style="font-size:17px;font-weight:800;margin:16px 0 12px;">四天精选行程一览 (点击查看详情)</h3>
